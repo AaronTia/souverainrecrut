@@ -1,7 +1,6 @@
 // ======================================================
 // Prisma Schema
 // Projet : SouverainRecrut
-// Bootcamp DevOps Conakry 2026
 // ======================================================
 
 generator client {
