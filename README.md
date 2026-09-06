@@ -11,7 +11,7 @@ Elle permet de :
 - suivre les candidatures ;
 - centraliser le processus de recrutement.
 
-Ce projet est utilisé comme **projet fil rouge** du Bootcamp DevOps.
+Ce projet est utilisé comme **projet fil rouge** des cours  DevOps.
 
 ---
 
