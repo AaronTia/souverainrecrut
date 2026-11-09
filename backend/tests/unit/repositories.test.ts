@@ -35,6 +35,13 @@ describe("UserRepository", () => {
       orderBy: { createdAt: "desc" },
     });
     expect(prismaMock.user.count).toHaveBeenCalledWith();
+
+    await repo.findAll();
+    expect(prismaMock.user.findMany).toHaveBeenLastCalledWith({
+      skip: 0,
+      take: 10,
+      orderBy: { createdAt: "desc" },
+    });
   });
 
   it("findById / findByEmail / findProfile interrogent findUnique", async () => {
@@ -105,6 +112,13 @@ describe("CandidateRepository", () => {
       orderBy: { createdAt: "desc" },
     });
 
+    await repo.findAll();
+    expect(prismaMock.candidate.findMany).toHaveBeenLastCalledWith({
+      skip: 0,
+      take: 10,
+      orderBy: { createdAt: "desc" },
+    });
+
     await repo.findById("c1");
     expect(prismaMock.candidate.findUnique).toHaveBeenCalledWith({
       where: { id: "c1" },
@@ -149,6 +163,13 @@ describe("JobRepository", () => {
       orderBy: { createdAt: "desc" },
     });
 
+    await repo.findAll();
+    expect(prismaMock.job.findMany).toHaveBeenLastCalledWith({
+      skip: 0,
+      take: 10,
+      orderBy: { createdAt: "desc" },
+    });
+
     await repo.findById("j1");
     expect(prismaMock.job.findUnique).toHaveBeenCalledWith({
       where: { id: "j1" },
@@ -181,6 +202,14 @@ describe("ApplicationRepository", () => {
 
     await repo.findAll(0, 10);
     expect(prismaMock.application.findMany).toHaveBeenCalledWith({
+      skip: 0,
+      take: 10,
+      orderBy: { createdAt: "desc" },
+      include: { candidate: true, job: true },
+    });
+
+    await repo.findAll();
+    expect(prismaMock.application.findMany).toHaveBeenLastCalledWith({
       skip: 0,
       take: 10,
       orderBy: { createdAt: "desc" },

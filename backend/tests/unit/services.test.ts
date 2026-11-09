@@ -48,13 +48,16 @@ describe("UserService", () => {
     InstanceType<typeof UserRepository>
   >;
 
-  it("getAll délègue au repository", async () => {
+  it("getAll délègue au repository avec les valeurs par défaut", async () => {
     repo.findAll.mockResolvedValue({ items: [user], total: 1 });
-    await expect(service.getAll(0, 10)).resolves.toEqual({
+    await expect(service.getAll()).resolves.toEqual({
       items: [user],
       total: 1,
     });
     expect(repo.findAll).toHaveBeenCalledWith(0, 10);
+
+    await service.getAll(20, 5);
+    expect(repo.findAll).toHaveBeenCalledWith(20, 5);
   });
 
   it("getById retourne l'utilisateur ou lève 404", async () => {
@@ -235,10 +238,11 @@ describe("JobService", () => {
 
   it("couvre getAll, getById (200/404), create, update et delete", async () => {
     repo.findAll.mockResolvedValue({ items: [job], total: 1 });
-    await expect(service.getAll(0, 10)).resolves.toEqual({
+    await expect(service.getAll()).resolves.toEqual({
       items: [job],
       total: 1,
     });
+    expect(repo.findAll).toHaveBeenCalledWith(0, 10);
 
     repo.findById.mockResolvedValue(job);
     await expect(service.getById("j1")).resolves.toEqual(job);
