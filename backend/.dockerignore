@@ -1,0 +1,17 @@
+# Exclus du contexte de build Docker : dépendances locales, secrets,
+# tests et rapports (l'image ne contient que le code de production).
+node_modules
+dist
+coverage
+reports
+tests
+.scannerwork
+.env
+.env.*
+!.env.example
+*.log
+Dockerfile
+.dockerignore
+jest.config.js
+tsconfig.test.json
+sonar-project.properties

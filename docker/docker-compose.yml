@@ -22,7 +22,9 @@ volumes:
 
 services:
   jenkins:
-    image: jenkins/jenkins:lts-jdk17
+    # Image officielle + docker CLI, Node.js 22 et Trivy (voir jenkins/Dockerfile)
+    build: ./jenkins
+    image: souverainrecrut-jenkins:local
     container_name: jenkins
     restart: unless-stopped
     # root requis pour pouvoir utiliser le socket Docker de l'hote (build des images du projet)
@@ -47,6 +49,9 @@ services:
       - SONAR_JDBC_URL=jdbc:postgresql://sonar-db:5432/sonarqube
       - SONAR_JDBC_USERNAME=sonar
       - SONAR_JDBC_PASSWORD=sonar
+      # Autorise le webhook vers http://jenkins:8080 (adresse du réseau Docker local,
+      # bloquée par défaut). A ne pas utiliser sur un SonarQube exposé.
+      - SONAR_VALIDATEWEBHOOKS=false
     ports:
       - "9000:9000"
     volumes:

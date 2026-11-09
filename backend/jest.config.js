@@ -18,16 +18,6 @@ const base = {
     "!src/**/*.d.ts", // déclarations de types
     "!tests/**", // helpers de test
   ],
-
-  // Objectif : 100% de couverture sur le code applicatif
-  coverageThresholds: {
-    global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100,
-    },
-  },
 };
 
 module.exports = {
@@ -52,7 +42,8 @@ module.exports = {
   coverageReporters: ["text", "lcov", "html"], // lcov.info est lu par SonarQube
 
   // Objectif : 100% de couverture sur le code applicatif
-  coverageThresholds: {
+  // (option globale uniquement : "coverageThreshold", sans s)
+  coverageThreshold: {
     global: {
       branches: 100,
       functions: 100,
