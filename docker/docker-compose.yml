@@ -1,0 +1,75 @@
+# Stack CI/CD locale pour SouverainRecrut
+# Lancement : docker compose up -d
+#
+# Jenkins   : http://localhost:8080
+#             mot de passe initial : docker compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+# SonarQube : http://localhost:9000  (login par defaut : admin / admin, a changer a la premiere connexion)
+#
+# Sur Linux, SonarQube necessite : sudo sysctl -w vm.max_map_count=524288
+
+name: souverainrecrut-cicd
+
+networks:
+  cicd:
+    driver: bridge
+
+volumes:
+  jenkins_home:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+  sonar_db_data:
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    container_name: jenkins
+    restart: unless-stopped
+    # root requis pour pouvoir utiliser le socket Docker de l'hote (build des images du projet)
+    user: root
+    ports:
+      - "8080:8080"    # interface web
+      - "50000:50000"  # agents JNLP
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - cicd
+
+  sonarqube:
+    image: sonarqube:lts-community
+    container_name: sonarqube
+    restart: unless-stopped
+    depends_on:
+      sonar-db:
+        condition: service_healthy
+    environment:
+      - SONAR_JDBC_URL=jdbc:postgresql://sonar-db:5432/sonarqube
+      - SONAR_JDBC_USERNAME=sonar
+      - SONAR_JDBC_PASSWORD=sonar
+    ports:
+      - "9000:9000"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+    networks:
+      - cicd
+
+  sonar-db:
+    image: postgres:16-alpine
+    container_name: sonar-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+      - POSTGRES_DB=sonarqube
+    volumes:
+      - sonar_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonar -d sonarqube"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - cicd
