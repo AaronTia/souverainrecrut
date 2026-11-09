@@ -37,7 +37,7 @@ services:
       - cicd
 
   sonarqube:
-    image: sonarqube:lts-community
+    image: sonarqube:community
     container_name: sonarqube
     restart: unless-stopped
     depends_on:
