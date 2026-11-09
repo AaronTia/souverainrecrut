@@ -6,7 +6,7 @@ import { CandidateRepository } from "../../src/repositories/candidate.repository
 import { DashboardRepository } from "../../src/repositories/dashboard.repository";
 import { JobRepository } from "../../src/repositories/job.repository";
 import { UserRepository } from "../../src/repositories/user.repository";
-import { prismaMock } from "../helpers/prisma.mock";
+import { prismaMock } from "../setup/prisma-mock";
 
 describe("BaseRepository", () => {
   it("expose le client Prisma partagé", () => {

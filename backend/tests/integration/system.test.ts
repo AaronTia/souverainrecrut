@@ -1,7 +1,7 @@
 import request from "supertest";
 
 import app from "../../src/app";
-import { prismaMock } from "../helpers/prisma.mock";
+import { prismaMock } from "../setup/prisma-mock";
 import { recruiterToken } from "../helpers/auth";
 
 describe("Routes système", () => {

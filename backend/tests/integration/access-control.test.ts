@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import request from "supertest";
 
 import app from "../../src/app";
-import { prismaMock } from "../helpers/prisma.mock";
+import { prismaMock } from "../setup/prisma-mock";
 import { adminToken, recruiterToken } from "../helpers/auth";
 
 describe("Authentification (authMiddleware)", () => {
@@ -34,7 +34,7 @@ describe("Authentification (authMiddleware)", () => {
   });
 
   it("refuse un token expiré (401)", async () => {
-    const expired = jwt.sign({ id: "x", role: "ADMIN" }, "test-secret", {
+    const expired = jwt.sign({ id: "x", role: "ADMIN" }, process.env.JWT_SECRET as string, {
       expiresIn: -10,
     });
 

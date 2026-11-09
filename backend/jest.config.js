@@ -1,21 +1,25 @@
 /** @type {import('jest').Config} */
-module.exports = {
+const base = {
   testEnvironment: "node",
-  roots: ["<rootDir>/tests"],
-  testMatch: ["**/*.test.ts"],
-  setupFilesAfterEnv: ["<rootDir>/tests/setup.ts"],
+
+  // Compile les fichiers TypeScript avec ts-jest
   transform: {
-    "^.+\\.ts$": ["ts-jest", { isolatedModules: true, diagnostics: false }],
+    "^.+\\.ts$": ["ts-jest", { tsconfig: "tsconfig.test.json" }],
   },
-  moduleFileExtensions: ["ts", "js", "json"],
+
+  // Variables d'environnement de test, chargées avant chaque fichier
+  setupFiles: ["<rootDir>/tests/setup/env.ts"],
+
+  // Couverture : uniquement le code applicatif
   collectCoverageFrom: [
     "src/**/*.ts",
-    "!src/server.ts",
-    "!src/config/prisma.ts",
-    "!src/**/*.d.ts",
+    "!src/server.ts", // démarre seulement le serveur
+    "!src/config/prisma.ts", // remplacé par un mock dans les tests
+    "!src/**/*.d.ts", // déclarations de types
+    "!tests/**", // helpers de test
   ],
-  coverageDirectory: "coverage",
-  coverageReporters: ["text", "text-summary", "lcov", "html"],
+
+  // Objectif : 100% de couverture sur le code applicatif
   coverageThresholds: {
     global: {
       branches: 100,
@@ -24,4 +28,42 @@ module.exports = {
       statements: 100,
     },
   },
+};
+
+module.exports = {
+  projects: [
+    {
+      ...base,
+      displayName: "unit",
+      testMatch: ["<rootDir>/tests/unit/**/*.test.ts"],
+      // Prisma est remplacé par un faux client (aucune base de données)
+      setupFilesAfterEnv: ["<rootDir>/tests/setup/prisma-mock.ts"],
+    },
+    {
+      ...base,
+      displayName: "integration",
+      testMatch: ["<rootDir>/tests/integration/**/*.test.ts"],
+      // Les tests d'intégration ont aussi besoin du faux client Prisma
+      setupFilesAfterEnv: ["<rootDir>/tests/setup/prisma-mock.ts"],
+    },
+  ],
+
+  coverageDirectory: "coverage",
+  coverageReporters: ["text", "lcov", "html"], // lcov.info est lu par SonarQube
+
+  // Objectif : 100% de couverture sur le code applicatif
+  coverageThresholds: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
+
+  // Rapport JUnit pour Jenkins (reports/junit.xml)
+  reporters: [
+    "default",
+    ["jest-junit", { outputDirectory: "reports", outputName: "junit.xml" }],
+  ],
 };

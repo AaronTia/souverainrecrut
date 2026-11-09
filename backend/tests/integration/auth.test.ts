@@ -4,7 +4,7 @@ import request from "supertest";
 import { Role, User } from "@prisma/client";
 
 import app from "../../src/app";
-import { prismaMock } from "../helpers/prisma.mock";
+import { prismaMock } from "../setup/prisma-mock";
 import { adminToken } from "../helpers/auth";
 
 const buildUser = async (): Promise<User> => ({
@@ -31,7 +31,7 @@ describe("POST /v1/auth/login", () => {
     expect(res.body.data.user.email).toBe("ada@souverainrecrut.fr");
     expect(res.body.data.user.password).toBeUndefined();
 
-    const payload = jwt.verify(res.body.data.token, "test-secret") as {
+    const payload = jwt.verify(res.body.data.token, process.env.JWT_SECRET as string) as {
       id: string;
       role: Role;
     };

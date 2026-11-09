@@ -56,7 +56,7 @@ describe("authMiddleware", () => {
   });
 
   it("attache l'utilisateur à la requête et appelle next() si le token est valide", () => {
-    const token = jwt.sign({ id: "u1", role: "ADMIN" }, "test-secret");
+    const token = jwt.sign({ id: "u1", role: "ADMIN" }, process.env.JWT_SECRET as string);
     const req = mockRequest({
       headers: { authorization: `Bearer ${token}` },
     });

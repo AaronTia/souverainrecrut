@@ -16,7 +16,7 @@ import { HealthService } from "../../src/services/health.service";
 import { InfoService } from "../../src/services/info.service";
 import { JobService } from "../../src/services/job.service";
 import { UserService } from "../../src/services/user.service";
-import { prismaMock } from "../helpers/prisma.mock";
+import { prismaMock } from "../setup/prisma-mock";
 
 jest.mock("../../src/repositories/user.repository");
 jest.mock("../../src/repositories/candidate.repository");
@@ -158,7 +158,7 @@ describe("AuthService", () => {
 
     expect(result.user).toEqual({ ...user, password: undefined });
     expect((result.user as Record<string, unknown>).password).toBeUndefined();
-    const payload = jwt.verify(result.token, "test-secret") as {
+    const payload = jwt.verify(result.token, process.env.JWT_SECRET as string) as {
       id: string;
       role: Role;
     };

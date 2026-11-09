@@ -3,7 +3,7 @@ import request from "supertest";
 import { Role, User } from "@prisma/client";
 
 import app from "../../src/app";
-import { prismaMock } from "../helpers/prisma.mock";
+import { prismaMock } from "../setup/prisma-mock";
 import { adminToken } from "../helpers/auth";
 
 const user: User = {
