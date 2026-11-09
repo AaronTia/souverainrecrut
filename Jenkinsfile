@@ -4,6 +4,7 @@ pipeline {
   options {
     skipDefaultCheckout()
     timestamps()
+    ansiColor('xterm')   // interprète les codes couleur ANSI au lieu de les afficher bruts
     timeout(time: 30, unit: 'MINUTES')
     disableConcurrentBuilds()
     buildDiscarder(logRotator(numToKeepStr: '10'))
@@ -11,6 +12,7 @@ pipeline {
 
   environment {
     CI          = 'true'
+    DOTENV_CONFIG_QUIET = 'true'   // supprime les messages "injected env" de dotenv
     LOCAL_IMAGE = 'souverainrecrut-backend'
     IMAGE_NAME  = 'souverainrecrut-backend'   // nom du dépôt sur Docker Hub
     TRIVY_CACHE = '/var/jenkins_home/.cache/trivy'

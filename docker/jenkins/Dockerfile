@@ -22,7 +22,8 @@ RUN apt-get update \
 # Plugins nécessaires au Jenkinsfile, en plus des plugins suggérés :
 #   - sonar           : withSonarQubeEnv / waitForQualityGate
 #   - docker-workflow : syntaxe docker.build / docker.withRegistry
+#   - ansicolor       : affiche les couleurs des logs (npm, Jest, morgan, Trivy)
 # Installés dans /usr/share/jenkins/ref, copiés dans jenkins_home au démarrage.
-RUN jenkins-plugin-cli --plugins sonar docker-workflow
+RUN jenkins-plugin-cli --plugins sonar docker-workflow ansicolor
 
 # Le conteneur tourne en root (voir docker-compose.yml) pour accéder au socket Docker.

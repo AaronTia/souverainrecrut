@@ -7,3 +7,5 @@
 process.env.NODE_ENV ??= "test";
 process.env.JWT_SECRET ??= "test-jwt-secret-not-for-production";
 process.env.API_VERSION ??= "v1";
+// Évite le message "injected env (0) from .env // tip..." de dotenv à chaque test
+process.env.DOTENV_CONFIG_QUIET ??= "true";
