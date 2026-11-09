@@ -19,8 +19,12 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        checkout scm
         script {
+          // Avec skipDefaultCheckout(), env.GIT_COMMIT n'est pas défini :
+          // on récupère le commit dans le résultat de checkout scm.
+          def scmVars = checkout scm
+          env.GIT_COMMIT = scmVars.GIT_COMMIT
+
           // Tag traçable : version applicative + identifiant court du commit
           def version = sh(returnStdout: true,
             script: "node -p \"require('./backend/package.json').version\"").trim()
@@ -144,7 +148,8 @@ pipeline {
     }
     always {
       // Libère l'espace disque de l'hôte (images locales du build)
-      sh 'docker image rm "$LOCAL_IMAGE:$IMAGE_TAG" || true'
+      // (ignoré si le build a échoué avant le calcul du tag)
+      sh '[ -z "$IMAGE_TAG" ] || docker image rm "$LOCAL_IMAGE:$IMAGE_TAG" || true'
     }
   }
 }
