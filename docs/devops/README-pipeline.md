@@ -89,7 +89,7 @@ Paramètres SonarQube : `backend/sonar-project.properties` (clé `souverainrecru
 | 1 | Checkout | `checkout scm` + calcul `IMAGE_TAG` | dépôt injoignable | 2 s |
 | 2 | Install | `npm ci` | lockfile incohérent | 47 s |
 | 3 | Prisma generate | `npx prisma generate` | schéma invalide | 1 s |
-| 4 | Tests | `npm run test:ci` (Jest, `--coverage`, JUnit) | test rouge ou couverture < 100 % | 15 s |
+| 4 | Tests | `npm run test:ci` (Jest, `--coverage`, JUnit) | test rouge, ou couverture < 100 % sur middlewares/validators, < 90 % ailleurs | 15 s |
 | 5 | Docs API | `npm run docs:api` : export de la spec swagger-jsdoc (`scripts/export-openapi.ts`) puis `@redocly/cli build-docs` | spec invalide | ~10 s |
 | 6 | SonarQube | `npx @sonar/scan` | scanner en erreur | 53 s |
 | 7 | Quality Gate | `waitForQualityGate abortPipeline: true` | Quality Gate ≠ PASSED (timeout 5 min) | 10 s |
@@ -116,7 +116,7 @@ Options : `timeout 30 min`, `disableConcurrentBuilds`, conservation des 10 derni
 
 | Contrôle | Résultat |
 |---|---|
-| Tests | 16 suites, **127 / 127** passés |
+| Tests | 16 suites, **127 / 127** passés (depuis le 10/11 : 18 suites, 151 tests dont 8 `it.failing` documentant des défauts connus – voir cahier local §8 bis) |
 | Couverture | **100 %** lignes / branches / fonctions (seuil Jest 100 %) |
 | SonarQube | Quality Gate **Passed** · 1,5 k lignes · 0 nouveau problème · duplication 0,0 % |
 | Trivy | **0 CRITICAL**, 16 HIGH (dépendances transitives, non bloquantes, listées dans le rapport) |

@@ -93,6 +93,9 @@ describe("Routes système", () => {
       applications: 7,
       pendingApplications: 3,
     });
+    expect(prismaMock.application.count).toHaveBeenLastCalledWith({
+      where: { status: "PENDING" },
+    });
   });
 
   it("retourne 404 pour une route inconnue", async () => {

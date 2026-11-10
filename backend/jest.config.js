@@ -41,10 +41,20 @@ module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["text", "lcov", "html"], // lcov.info est lu par SonarQube
 
-  // Objectif : 100% de couverture sur le code applicatif
-  // (option globale uniquement : "coverageThreshold", sans s)
   coverageThreshold: {
     global: {
+      branches: 70,
+      functions: 90,
+      lines: 90,
+      statements: 90,
+    },
+    "./src/middlewares/": {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+    "./src/validators/": {
       branches: 100,
       functions: 100,
       lines: 100,

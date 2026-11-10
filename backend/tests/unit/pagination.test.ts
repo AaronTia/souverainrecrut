@@ -21,10 +21,10 @@ describe("getPagination", () => {
     expect(getPagination("1", "0").limit).toBe(1);
   });
 
-  it("gère des valeurs non numériques", () => {
-    const result = getPagination("abc", "xyz");
-    expect(Number.isNaN(result.page)).toBe(true);
-    expect(Number.isNaN(result.limit)).toBe(true);
+  // Défaut connu : parseInt("abc") donne NaN et Math.max(NaN, 1) reste NaN,
+  // donc ?page=abc produit skip=NaN. L'attendu est un repli sur les valeurs par défaut.
+  it.failing("retombe sur les valeurs par défaut pour des valeurs non numériques", () => {
+    expect(getPagination("abc", "xyz")).toEqual({ page: 1, limit: 10, skip: 0 });
   });
 });
 

@@ -8,8 +8,6 @@ import { authorize } from "../../src/middlewares/authorize.middleware";
 import { validate } from "../../src/middlewares/validate.middleware";
 import { errorMiddleware } from "../../src/middlewares/error.middleware";
 import { notFoundMiddleware } from "../../src/middlewares/not-found.middleware";
-import { loggerMiddleware } from "../../src/middlewares/logger.middleware";
-import { corsMiddleware } from "../../src/middlewares/cors.middleware";
 import { mockNext, mockRequest, mockResponse } from "../helpers/http";
 
 describe("authMiddleware", () => {
@@ -173,6 +171,32 @@ describe("errorMiddleware", () => {
   });
 });
 
+describe("loggerMiddleware", () => {
+  const loadWithEnv = (nodeEnv: string): string => {
+    const previous = process.env.NODE_ENV;
+    process.env.NODE_ENV = nodeEnv;
+    let format = "";
+    try {
+      jest.isolateModules(() => {
+        jest.doMock("morgan", () => jest.fn((f: string) => { format = f; return () => undefined; }));
+        require("../../src/middlewares/logger.middleware");
+      });
+    } finally {
+      process.env.NODE_ENV = previous;
+      jest.dontMock("morgan");
+    }
+    return format;
+  };
+
+  it("journalise au format combined en production", () => {
+    expect(loadWithEnv("production")).toBe("combined");
+  });
+
+  it("journalise au format dev hors production", () => {
+    expect(loadWithEnv("development")).toBe("dev");
+  });
+});
+
 describe("notFoundMiddleware", () => {
   it("retourne 404 avec l'URL demandée", () => {
     const res = mockResponse();
@@ -189,26 +213,5 @@ describe("notFoundMiddleware", () => {
         message: "Route /v1/inexistante introuvable.",
       },
     });
-  });
-});
-
-describe("loggerMiddleware / corsMiddleware", () => {
-  it("expose des middlewares (fonctions) en environnement de test", () => {
-    expect(typeof loggerMiddleware).toBe("function");
-    expect(typeof corsMiddleware).toBe("function");
-  });
-
-  it("utilise le format combined en production", () => {
-    const previous = process.env.NODE_ENV;
-    process.env.NODE_ENV = "production";
-    try {
-      jest.isolateModules(() => {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const mod = require("../../src/middlewares/logger.middleware");
-        expect(typeof mod.loggerMiddleware).toBe("function");
-      });
-    } finally {
-      process.env.NODE_ENV = previous;
-    }
   });
 });
