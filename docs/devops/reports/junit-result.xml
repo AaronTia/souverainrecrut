@@ -1,0 +1,1950 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<result plugin="junit@1446.veeff2ec8581c">
+  <suites>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>Users_(ADMIN_uniquement)</name>
+      <duration>1.123</duration>
+      <startTime>1794237716000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:56</timestamp>
+      <time>1.123</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.045</duration>
+          <startTime>1794237716000</startTime>
+          <className>Users (ADMIN uniquement) GET /v1/users retourne une liste paginée</className>
+          <testName>Users (ADMIN uniquement) GET /v1/users retourne une liste paginée</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.021</duration>
+          <startTime>1794237716045</startTime>
+          <className>Users (ADMIN uniquement) GET /v1/users/:id retourne l&apos;utilisateur ou 404</className>
+          <testName>Users (ADMIN uniquement) GET /v1/users/:id retourne l&apos;utilisateur ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.159</duration>
+          <startTime>1794237716066</startTime>
+          <className>Users (ADMIN uniquement) POST /v1/users crée un utilisateur avec un mot de passe hashé (201)</className>
+          <testName>Users (ADMIN uniquement) POST /v1/users crée un utilisateur avec un mot de passe hashé (201)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.017</duration>
+          <startTime>1794237716225</startTime>
+          <className>Users (ADMIN uniquement) POST /v1/users refuse un email déjà utilisé (409)</className>
+          <testName>Users (ADMIN uniquement) POST /v1/users refuse un email déjà utilisé (409)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.01</duration>
+          <startTime>1794237716242</startTime>
+          <className>Users (ADMIN uniquement) POST /v1/users refuse des données invalides (400)</className>
+          <testName>Users (ADMIN uniquement) POST /v1/users refuse des données invalides (400)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.015</duration>
+          <startTime>1794237716252</startTime>
+          <className>Users (ADMIN uniquement) PUT /v1/users/:id met à jour l&apos;utilisateur (200) ou 404</className>
+          <testName>Users (ADMIN uniquement) PUT /v1/users/:id met à jour l&apos;utilisateur (200) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.019</duration>
+          <startTime>1794237716267</startTime>
+          <className>Users (ADMIN uniquement) PUT /v1/users/:id refuse une donnée invalide (400)</className>
+          <testName>Users (ADMIN uniquement) PUT /v1/users/:id refuse une donnée invalide (400)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.015</duration>
+          <startTime>1794237716286</startTime>
+          <className>Users (ADMIN uniquement) DELETE /v1/users/:id supprime l&apos;utilisateur (200) ou 404</className>
+          <testName>Users (ADMIN uniquement) DELETE /v1/users/:id supprime l&apos;utilisateur (200) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>BaseRepository</name>
+      <duration>0.218</duration>
+      <startTime>1794237717000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:57</timestamp>
+      <time>0.218</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237717000</startTime>
+          <className>BaseRepository expose le client Prisma partagé</className>
+          <testName>BaseRepository expose le client Prisma partagé</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237717001</startTime>
+          <className>UserRepository findAll pagine avec findMany + count</className>
+          <testName>UserRepository findAll pagine avec findMany + count</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237717002</startTime>
+          <className>UserRepository findById / findByEmail / findProfile interrogent findUnique</className>
+          <testName>UserRepository findById / findByEmail / findProfile interrogent findUnique</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.005</duration>
+          <startTime>1794237717006</startTime>
+          <className>UserRepository create / update / delete appellent le client Prisma</className>
+          <testName>UserRepository create / update / delete appellent le client Prisma</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.017</duration>
+          <startTime>1794237717011</startTime>
+          <className>CandidateRepository couvre findAll, findById, findByEmail, create, update et delete</className>
+          <testName>CandidateRepository couvre findAll, findById, findByEmail, create, update et delete</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.032</duration>
+          <startTime>1794237717028</startTime>
+          <className>JobRepository couvre findAll, findById, create, update et delete</className>
+          <testName>JobRepository couvre findAll, findById, create, update et delete</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.026</duration>
+          <startTime>1794237717060</startTime>
+          <className>ApplicationRepository couvre findAll, findById, create, update, updateStatus et delete</className>
+          <testName>ApplicationRepository couvre findAll, findById, create, update, updateStatus et delete</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.064</duration>
+          <startTime>1794237717086</startTime>
+          <className>DashboardRepository agrège les compteurs de toutes les tables</className>
+          <testName>DashboardRepository agrège les compteurs de toutes les tables</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>Candidats</name>
+      <duration>0.278</duration>
+      <startTime>1794237717000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:57</timestamp>
+      <time>0.278</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.013</duration>
+          <startTime>1794237717000</startTime>
+          <className>Candidats GET /v1/candidates retourne une liste paginée</className>
+          <testName>Candidats GET /v1/candidates retourne une liste paginée</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.014</duration>
+          <startTime>1794237717013</startTime>
+          <className>Candidats GET /v1/candidates/:id retourne le candidat ou 404</className>
+          <testName>Candidats GET /v1/candidates/:id retourne le candidat ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.013</duration>
+          <startTime>1794237717027</startTime>
+          <className>Candidats POST /v1/candidates crée un candidat (email normalisé)</className>
+          <testName>Candidats POST /v1/candidates crée un candidat (email normalisé)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.007</duration>
+          <startTime>1794237717040</startTime>
+          <className>Candidats POST /v1/candidates refuse un email déjà utilisé (409)</className>
+          <testName>Candidats POST /v1/candidates refuse un email déjà utilisé (409)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.009</duration>
+          <startTime>1794237717047</startTime>
+          <className>Candidats POST /v1/candidates refuse des données invalides (400)</className>
+          <testName>Candidats POST /v1/candidates refuse des données invalides (400)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.015</duration>
+          <startTime>1794237717056</startTime>
+          <className>Candidats PUT /v1/candidates/:id met à jour le candidat (200) ou 404</className>
+          <testName>Candidats PUT /v1/candidates/:id met à jour le candidat (200) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.011</duration>
+          <startTime>1794237717071</startTime>
+          <className>Candidats DELETE /v1/candidates/:id supprime le candidat (ADMIN) ou 404</className>
+          <testName>Candidats DELETE /v1/candidates/:id supprime le candidat (ADMIN) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>Applications</name>
+      <duration>0.217</duration>
+      <startTime>1794237717000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:57</timestamp>
+      <time>0.217</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.014</duration>
+          <startTime>1794237717000</startTime>
+          <className>Applications GET /v1/applications retourne une liste paginée</className>
+          <testName>Applications GET /v1/applications retourne une liste paginée</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.016</duration>
+          <startTime>1794237717014</startTime>
+          <className>Applications GET /v1/applications/:id retourne la candidature ou 404</className>
+          <testName>Applications GET /v1/applications/:id retourne la candidature ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.024</duration>
+          <startTime>1794237717030</startTime>
+          <className>Applications POST /v1/applications crée une candidature (201)</className>
+          <testName>Applications POST /v1/applications crée une candidature (201)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.008</duration>
+          <startTime>1794237717054</startTime>
+          <className>Applications POST /v1/applications refuse des données invalides (400)</className>
+          <testName>Applications POST /v1/applications refuse des données invalides (400)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.011</duration>
+          <startTime>1794237717062</startTime>
+          <className>Applications PUT /v1/applications/:id met à jour le statut (200) ou 404</className>
+          <testName>Applications PUT /v1/applications/:id met à jour le statut (200) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.007</duration>
+          <startTime>1794237717073</startTime>
+          <className>Applications PUT /v1/applications/:id refuse un statut invalide (400)</className>
+          <testName>Applications PUT /v1/applications/:id refuse un statut invalide (400)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.017</duration>
+          <startTime>1794237717080</startTime>
+          <className>Applications DELETE /v1/applications/:id supprime la candidature (ADMIN) ou 404</className>
+          <testName>Applications DELETE /v1/applications/:id supprime la candidature (ADMIN) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>Authentification_(authMiddleware)</name>
+      <duration>0.162</duration>
+      <startTime>1794237718000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:58</timestamp>
+      <time>0.162</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.01</duration>
+          <startTime>1794237718000</startTime>
+          <className>Authentification (authMiddleware) refuse une requête sans en-tête Authorization (401)</className>
+          <testName>Authentification (authMiddleware) refuse une requête sans en-tête Authorization (401)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237718010</startTime>
+          <className>Authentification (authMiddleware) refuse un schéma autre que Bearer (401)</className>
+          <testName>Authentification (authMiddleware) refuse un schéma autre que Bearer (401)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237718013</startTime>
+          <className>Authentification (authMiddleware) refuse un token signé avec une autre clé (401)</className>
+          <testName>Authentification (authMiddleware) refuse un token signé avec une autre clé (401)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237718017</startTime>
+          <className>Authentification (authMiddleware) refuse un token expiré (401)</className>
+          <testName>Authentification (authMiddleware) refuse un token expiré (401)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237718019</startTime>
+          <className>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire del /v1/candidates/c1 (403)</className>
+          <testName>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire del /v1/candidates/c1 (403)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237718023</startTime>
+          <className>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire del /v1/jobs/j1 (403)</className>
+          <testName>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire del /v1/jobs/j1 (403)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237718026</startTime>
+          <className>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire del /v1/applications/a1 (403)</className>
+          <testName>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire del /v1/applications/a1 (403)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237718030</startTime>
+          <className>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire get /v1/users (403)</className>
+          <testName>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire get /v1/users (403)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237718033</startTime>
+          <className>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire post /v1/users (403)</className>
+          <testName>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire post /v1/users (403)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237718036</startTime>
+          <className>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire put /v1/users/u1 (403)</className>
+          <testName>Autorisation par rôle (authorize) un RECRUITER ne peut pas faire put /v1/users/u1 (403)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237718040</startTime>
+          <className>Autorisation par rôle (authorize) un RECRUITER peut consulter les candidats</className>
+          <testName>Autorisation par rôle (authorize) un RECRUITER peut consulter les candidats</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.005</duration>
+          <startTime>1794237718042</startTime>
+          <className>Autorisation par rôle (authorize) un ADMIN peut consulter les utilisateurs</className>
+          <testName>Autorisation par rôle (authorize) un ADMIN peut consulter les utilisateurs</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>POST__v1_auth_login</name>
+      <duration>0.217</duration>
+      <startTime>1794237718000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:58</timestamp>
+      <time>0.217</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.072</duration>
+          <startTime>1794237718000</startTime>
+          <className>POST /v1/auth/login retourne un token JWT et l&apos;utilisateur sans mot de passe</className>
+          <testName>POST /v1/auth/login retourne un token JWT et l&apos;utilisateur sans mot de passe</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.006</duration>
+          <startTime>1794237718072</startTime>
+          <className>POST /v1/auth/login refuse un email inconnu (401)</className>
+          <testName>POST /v1/auth/login refuse un email inconnu (401)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.008</duration>
+          <startTime>1794237718078</startTime>
+          <className>POST /v1/auth/login refuse un mauvais mot de passe (401)</className>
+          <testName>POST /v1/auth/login refuse un mauvais mot de passe (401)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.008</duration>
+          <startTime>1794237718086</startTime>
+          <className>GET /v1/auth/me retourne le profil de l&apos;utilisateur connecté</className>
+          <testName>GET /v1/auth/me retourne le profil de l&apos;utilisateur connecté</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.005</duration>
+          <startTime>1794237718094</startTime>
+          <className>GET /v1/auth/me retourne 404 si l&apos;utilisateur n&apos;existe plus</className>
+          <testName>GET /v1/auth/me retourne 404 si l&apos;utilisateur n&apos;existe plus</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>Routes_système</name>
+      <duration>0.17</duration>
+      <startTime>1794237718000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:58</timestamp>
+      <time>0.17</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.012</duration>
+          <startTime>1794237718000</startTime>
+          <className>Routes système GET / retourne le message d&apos;accueil</className>
+          <testName>Routes système GET / retourne le message d&apos;accueil</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237718012</startTime>
+          <className>Routes système GET /api-docs/ sert la documentation Swagger</className>
+          <testName>Routes système GET /api-docs/ sert la documentation Swagger</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237718016</startTime>
+          <className>Routes système GET /v1/info retourne les informations de l&apos;API</className>
+          <testName>Routes système GET /v1/info retourne les informations de l&apos;API</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237718020</startTime>
+          <className>Routes système GET /v1/health retourne UP</className>
+          <testName>Routes système GET /v1/health retourne UP</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237718023</startTime>
+          <className>Routes système GET /v1/ready retourne 200 quand la base répond</className>
+          <testName>Routes système GET /v1/ready retourne 200 quand la base répond</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237718027</startTime>
+          <className>Routes système GET /v1/ready retourne 503 quand la base est indisponible</className>
+          <testName>Routes système GET /v1/ready retourne 503 quand la base est indisponible</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.005</duration>
+          <startTime>1794237718030</startTime>
+          <className>Routes système GET /v1/dashboard/stats retourne les statistiques</className>
+          <testName>Routes système GET /v1/dashboard/stats retourne les statistiques</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.011</duration>
+          <startTime>1794237718035</startTime>
+          <className>Routes système retourne 404 pour une route inconnue</className>
+          <testName>Routes système retourne 404 pour une route inconnue</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.016</duration>
+          <startTime>1794237718046</startTime>
+          <className>Routes système retourne 500 sans détail technique sur une erreur inattendue</className>
+          <testName>Routes système retourne 500 sans détail technique sur une erreur inattendue</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>Jobs</name>
+      <duration>0.222</duration>
+      <startTime>1794237718000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:58</timestamp>
+      <time>0.222</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.008</duration>
+          <startTime>1794237718000</startTime>
+          <className>Jobs GET /v1/jobs retourne une liste paginée</className>
+          <testName>Jobs GET /v1/jobs retourne une liste paginée</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.016</duration>
+          <startTime>1794237718008</startTime>
+          <className>Jobs GET /v1/jobs/:id retourne l&apos;offre ou 404</className>
+          <testName>Jobs GET /v1/jobs/:id retourne l&apos;offre ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.024</duration>
+          <startTime>1794237718024</startTime>
+          <className>Jobs POST /v1/jobs crée une offre (201)</className>
+          <testName>Jobs POST /v1/jobs crée une offre (201)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.023</duration>
+          <startTime>1794237718048</startTime>
+          <className>Jobs POST /v1/jobs refuse des données invalides (400)</className>
+          <testName>Jobs POST /v1/jobs refuse des données invalides (400)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.015</duration>
+          <startTime>1794237718071</startTime>
+          <className>Jobs PUT /v1/jobs/:id met à jour l&apos;offre (200) ou 404</className>
+          <testName>Jobs PUT /v1/jobs/:id met à jour l&apos;offre (200) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.007</duration>
+          <startTime>1794237718086</startTime>
+          <className>Jobs PUT /v1/jobs/:id refuse une donnée invalide (400)</className>
+          <testName>Jobs PUT /v1/jobs/:id refuse une donnée invalide (400)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.012</duration>
+          <startTime>1794237718093</startTime>
+          <className>Jobs DELETE /v1/jobs/:id supprime l&apos;offre (ADMIN) ou 404</className>
+          <testName>Jobs DELETE /v1/jobs/:id supprime l&apos;offre (ADMIN) ou 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>authMiddleware</name>
+      <duration>0.08</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.08</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237719000</startTime>
+          <className>authMiddleware retourne 401 sans en-tête Authorization</className>
+          <testName>authMiddleware retourne 401 sans en-tête Authorization</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719002</startTime>
+          <className>authMiddleware retourne 401 si le schéma n&apos;est pas Bearer</className>
+          <testName>authMiddleware retourne 401 si le schéma n&apos;est pas Bearer</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719003</startTime>
+          <className>authMiddleware retourne 401 si le token est absent après Bearer</className>
+          <testName>authMiddleware retourne 401 si le token est absent après Bearer</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719003</startTime>
+          <className>authMiddleware retourne 401 si le token est invalide</className>
+          <testName>authMiddleware retourne 401 si le token est invalide</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719004</startTime>
+          <className>authMiddleware attache l&apos;utilisateur à la requête et appelle next() si le token est valide</className>
+          <testName>authMiddleware attache l&apos;utilisateur à la requête et appelle next() si le token est valide</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719005</startTime>
+          <className>authorize retourne 401 si aucun utilisateur n&apos;est attaché à la requête</className>
+          <testName>authorize retourne 401 si aucun utilisateur n&apos;est attaché à la requête</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719005</startTime>
+          <className>authorize retourne 403 si le rôle n&apos;est pas autorisé</className>
+          <testName>authorize retourne 403 si le rôle n&apos;est pas autorisé</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719005</startTime>
+          <className>authorize appelle next() si le rôle est autorisé</className>
+          <testName>authorize appelle next() si le rôle est autorisé</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719005</startTime>
+          <className>validate remplace req.body par les données validées et appelle next()</className>
+          <testName>validate remplace req.body par les données validées et appelle next()</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719005</startTime>
+          <className>validate retourne 400 avec le détail des erreurs si la validation échoue</className>
+          <testName>validate retourne 400 avec le détail des erreurs si la validation échoue</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719005</startTime>
+          <className>errorMiddleware retourne le statut de l&apos;AppError avec son message</className>
+          <testName>errorMiddleware retourne le statut de l&apos;AppError avec son message</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719005</startTime>
+          <className>errorMiddleware retourne 500 sans détail pour une erreur inattendue</className>
+          <testName>errorMiddleware retourne 500 sans détail pour une erreur inattendue</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719006</startTime>
+          <className>notFoundMiddleware retourne 404 avec l&apos;URL demandée</className>
+          <testName>notFoundMiddleware retourne 404 avec l&apos;URL demandée</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719006</startTime>
+          <className>loggerMiddleware / corsMiddleware expose des middlewares (fonctions) en environnement de test</className>
+          <testName>loggerMiddleware / corsMiddleware expose des middlewares (fonctions) en environnement de test</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237719007</startTime>
+          <className>loggerMiddleware / corsMiddleware utilise le format combined en production</className>
+          <testName>loggerMiddleware / corsMiddleware utilise le format combined en production</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>UserService</name>
+      <duration>0.078</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.078</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237719000</startTime>
+          <className>UserService getAll délègue au repository avec les valeurs par défaut</className>
+          <testName>UserService getAll délègue au repository avec les valeurs par défaut</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719003</startTime>
+          <className>UserService getById retourne l&apos;utilisateur ou lève 404</className>
+          <testName>UserService getById retourne l&apos;utilisateur ou lève 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719004</startTime>
+          <className>UserService getProfile retourne le profil ou lève 404</className>
+          <testName>UserService getProfile retourne le profil ou lève 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719005</startTime>
+          <className>UserService create rejette un email déjà utilisé (409)</className>
+          <testName>UserService create rejette un email déjà utilisé (409)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719006</startTime>
+          <className>UserService create hashe le mot de passe avant de créer l&apos;utilisateur</className>
+          <testName>UserService create hashe le mot de passe avant de créer l&apos;utilisateur</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719007</startTime>
+          <className>UserService update et delete lèvent 404 si l&apos;utilisateur n&apos;existe pas</className>
+          <testName>UserService update et delete lèvent 404 si l&apos;utilisateur n&apos;existe pas</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719008</startTime>
+          <className>UserService update et delete délèguent au repository si l&apos;utilisateur existe</className>
+          <testName>UserService update et delete délèguent au repository si l&apos;utilisateur existe</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719009</startTime>
+          <className>AuthService login lève 401 si l&apos;email est inconnu</className>
+          <testName>AuthService login lève 401 si l&apos;email est inconnu</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719009</startTime>
+          <className>AuthService login lève 401 si le mot de passe est faux</className>
+          <testName>AuthService login lève 401 si le mot de passe est faux</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719010</startTime>
+          <className>AuthService login retourne un token JWT et l&apos;utilisateur sans mot de passe</className>
+          <testName>AuthService login retourne un token JWT et l&apos;utilisateur sans mot de passe</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719011</startTime>
+          <className>CandidateService getAll / getById / update / delete couvrent les cas nominaux et 404</className>
+          <testName>CandidateService getAll / getById / update / delete couvrent les cas nominaux et 404</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719012</startTime>
+          <className>CandidateService create rejette un email déjà utilisé (409) puis crée le candidat</className>
+          <testName>CandidateService create rejette un email déjà utilisé (409) puis crée le candidat</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719012</startTime>
+          <className>JobService couvre getAll, getById (200/404), create, update et delete</className>
+          <testName>JobService couvre getAll, getById (200/404), create, update et delete</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719013</startTime>
+          <className>ApplicationService couvre getAll, getById (200/404), create, update, updateStatus et delete</className>
+          <testName>ApplicationService couvre getAll, getById (200/404), create, update, updateStatus et delete</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719014</startTime>
+          <className>DashboardService retourne les statistiques du repository</className>
+          <testName>DashboardService retourne les statistiques du repository</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719014</startTime>
+          <className>HealthService health retourne UP avec les métadonnées</className>
+          <testName>HealthService health retourne UP avec les métadonnées</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719015</startTime>
+          <className>HealthService readiness retourne READY quand la base répond</className>
+          <testName>HealthService readiness retourne READY quand la base répond</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719016</startTime>
+          <className>HealthService readiness retourne NOT_READY quand la base est indisponible</className>
+          <testName>HealthService readiness retourne NOT_READY quand la base est indisponible</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719017</startTime>
+          <className>InfoService retourne les informations de l&apos;API</className>
+          <testName>InfoService retourne les informations de l&apos;API</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>Sécurité_des_middlewares</name>
+      <duration>0.041</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.041</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.003</duration>
+          <startTime>1794237719000</startTime>
+          <className>Sécurité des middlewares validate() retire les champs non prévus par le schéma (id, createdAt, role) avant le contrôleur</className>
+          <testName>Sécurité des middlewares validate() retire les champs non prévus par le schéma (id, createdAt, role) avant le contrôleur</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719003</startTime>
+          <className>Sécurité des middlewares authMiddleware refuse un token non signé (alg: none) qui se prétend ADMIN</className>
+          <testName>Sécurité des middlewares authMiddleware refuse un token non signé (alg: none) qui se prétend ADMIN</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>user.schema</name>
+      <duration>0.057</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.057</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237719000</startTime>
+          <className>user.schema valide une création complète (rôle optionnel)</className>
+          <testName>user.schema valide une création complète (rôle optionnel)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719002</startTime>
+          <className>user.schema rejette un email invalide, un mot de passe trop court ou un rôle inconnu</className>
+          <testName>user.schema rejette un email invalide, un mot de passe trop court ou un rôle inconnu</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719003</startTime>
+          <className>user.schema valide une mise à jour partielle, y compris un objet vide</className>
+          <testName>user.schema valide une mise à jour partielle, y compris un objet vide</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719004</startTime>
+          <className>user.schema rejette une mise à jour invalide</className>
+          <testName>user.schema rejette une mise à jour invalide</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <startTime>1794237719005</startTime>
+          <className>candidate.schema valide un candidat et normalise l&apos;email en minuscules</className>
+          <testName>candidate.schema valide un candidat et normalise l&apos;email en minuscules</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719005</startTime>
+          <className>candidate.schema accepte l&apos;absence de téléphone</className>
+          <testName>candidate.schema accepte l&apos;absence de téléphone</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719006</startTime>
+          <className>candidate.schema rejette un nom trop court, un email invalide ou un téléphone invalide</className>
+          <testName>candidate.schema rejette un nom trop court, un email invalide ou un téléphone invalide</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719007</startTime>
+          <className>candidate.schema valide une mise à jour partielle</className>
+          <testName>candidate.schema valide une mise à jour partielle</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719008</startTime>
+          <className>job.schema valide une offre complète</className>
+          <testName>job.schema valide une offre complète</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719009</startTime>
+          <className>job.schema rejette une offre invalide</className>
+          <testName>job.schema rejette une offre invalide</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719010</startTime>
+          <className>job.schema valide une mise à jour partielle</className>
+          <testName>job.schema valide une mise à jour partielle</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719011</startTime>
+          <className>application.schema valide une candidature (statut optionnel)</className>
+          <testName>application.schema valide une candidature (statut optionnel)</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719012</startTime>
+          <className>application.schema rejette une candidature sans candidat/offre ou avec un statut inconnu</className>
+          <testName>application.schema rejette une candidature sans candidat/offre ou avec un statut inconnu</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719013</startTime>
+          <className>application.schema exige un statut valide pour la mise à jour</className>
+          <testName>application.schema exige un statut valide pour la mise à jour</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>getPagination</name>
+      <duration>0.023</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.023</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719000</startTime>
+          <className>getPagination applique les valeurs par défaut</className>
+          <testName>getPagination applique les valeurs par défaut</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719001</startTime>
+          <className>getPagination calcule le décalage à partir de la page et de la limite</className>
+          <testName>getPagination calcule le décalage à partir de la page et de la limite</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719002</startTime>
+          <className>getPagination borne la page à 1 et la limite entre 1 et 100</className>
+          <testName>getPagination borne la page à 1 et la limite entre 1 et 100</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719003</startTime>
+          <className>getPagination gère des valeurs non numériques</className>
+          <testName>getPagination gère des valeurs non numériques</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719004</startTime>
+          <className>buildPaginationMeta arrondit le nombre de pages au supérieur</className>
+          <testName>buildPaginationMeta arrondit le nombre de pages au supérieur</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719005</startTime>
+          <className>buildPaginationMeta retourne 0 page pour un total nul</className>
+          <testName>buildPaginationMeta retourne 0 page pour un total nul</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>AppError</name>
+      <duration>0.042</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.042</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.018</duration>
+          <startTime>1794237719000</startTime>
+          <className>AppError utilise 500 par défaut et marque l&apos;erreur comme opérationnelle</className>
+          <testName>AppError utilise 500 par défaut et marque l&apos;erreur comme opérationnelle</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719018</startTime>
+          <className>AppError accepte un code de statut personnalisé</className>
+          <testName>AppError accepte un code de statut personnalisé</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>asyncHandler</name>
+      <duration>0.038</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.038</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.007</duration>
+          <startTime>1794237719000</startTime>
+          <className>asyncHandler exécute le handler et ne touche pas à next en cas de succès</className>
+          <testName>asyncHandler exécute le handler et ne touche pas à next en cas de succès</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <startTime>1794237719007</startTime>
+          <className>asyncHandler transmet l&apos;erreur au middleware suivant en cas de rejet</className>
+          <testName>asyncHandler transmet l&apos;erreur au middleware suivant en cas de rejet</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/jenkins_home/workspace/souverainrecrut-backend/backend/reports/junit.xml</file>
+      <name>env</name>
+      <duration>0.038</duration>
+      <startTime>1794237719000</startTime>
+      <properties/>
+      <timestamp>2026-11-09T15:21:59</timestamp>
+      <time>0.038</time>
+      <nodeId>50</nodeId>
+      <enclosingBlocks>
+        <string>44</string>
+      </enclosingBlocks>
+      <enclosingBlockNames>
+        <string>Tests</string>
+      </enclosingBlockNames>
+      <cases>
+        <case>
+          <duration>0.004</duration>
+          <startTime>1794237719000</startTime>
+          <className>env charge les valeurs de test définies dans tests/setup.ts</className>
+          <testName>env charge les valeurs de test définies dans tests/setup.ts</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237719004</startTime>
+          <className>env applique les valeurs par défaut quand les variables sont absentes</className>
+          <testName>env applique les valeurs par défaut quand les variables sont absentes</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237719006</startTime>
+          <className>env applique les défauts de nodeEnv, jwtSecret et apiVersion si absents</className>
+          <testName>env applique les défauts de nodeEnv, jwtSecret et apiVersion si absents</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.002</duration>
+          <startTime>1794237719008</startTime>
+          <className>env utilise les variables d&apos;environnement quand elles sont définies</className>
+          <testName>env utilise les variables d&apos;environnement quand elles sont définies</testName>
+          <isProperFailure>false</isProperFailure>
+          <skipped>false</skipped>
+          <keepTestNames>false</keepTestNames>
+          <properties/>
+          <flakyFailures/>
+          <rerunFailures/>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>3.0040004</duration>
+  <skipOldReports>false</skipOldReports>
+  <startTime>1794237716000</startTime>
+  <stdioRetention>NONE</stdioRetention>
+  <keepTestNames>false</keepTestNames>
+  <keepProperties>false</keepProperties>
+</result>

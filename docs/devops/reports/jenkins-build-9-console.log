@@ -1,0 +1,1055 @@
+Started by user ha:////4LyVghvMOf9R3XaEy2sIKAQSgbyPshu8HCQM/0kSMSglAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=admin
+Obtained Jenkinsfile from git https://github.com/AaronTia/souverainrecrut.git
+Running on ha:////4MlS/JjwX1bDIobPKqK756eLYPJyrqo5q098HG3q8GTDAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAAJenkins in /var/jenkins_home/workspace/souverainrecrut-backend
+[2026-11-09T15:20:52.468Z] ha:////4FS4ItmgW9MbOrHYv97F5GERudsxZKQhzYiScs7AeHglAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGlURDCyMDY0MLXYO0lCRdkyRTQ91EQyMT3UQTS0uLFEujtFQTSwAfsyWYrwAAAA==
+[2026-11-09T15:20:52.573Z] Timeout set to expire in 30 min
+[2026-11-09T15:20:52.939Z] Selected Git installation does not exist. Using Default
+[2026-11-09T15:20:52.939Z] The recommended git tool is: NONE
+[2026-11-09T15:20:52.939Z] No credentials specified
+[2026-11-09T15:20:52.941Z]  > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/souverainrecrut-backend/.git # timeout=10
+[2026-11-09T15:20:52.953Z] Fetching changes from the remote Git repository
+[2026-11-09T15:20:52.956Z]  > git config remote.origin.url https://github.com/AaronTia/souverainrecrut.git # timeout=10
+[2026-11-09T15:20:52.973Z] Fetching upstream changes from https://github.com/AaronTia/souverainrecrut.git
+[2026-11-09T15:20:52.973Z]  > git --version # timeout=10
+[2026-11-09T15:20:52.983Z]  > git --version # 'git version 2.47.3'
+[2026-11-09T15:20:52.983Z]  > git fetch --tags --force --progress -- https://github.com/AaronTia/souverainrecrut.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-11-09T15:20:53.831Z]  > git rev-parse refs/remotes/origin/Dev^{commit} # timeout=10
+[2026-11-09T15:20:53.845Z] Checking out Revision 12a585bd68aa08d37a38fa8cb3a71d56eb0bed2b (refs/remotes/origin/Dev)
+[2026-11-09T15:20:53.845Z]  > git config core.sparsecheckout # timeout=10
+[2026-11-09T15:20:53.859Z]  > git checkout -f 12a585bd68aa08d37a38fa8cb3a71d56eb0bed2b # timeout=10
+[2026-11-09T15:20:53.890Z] Commit message: "fix : tar"
+[2026-11-09T15:20:53.891Z]  > git rev-list --no-walk 12a585bd68aa08d37a38fa8cb3a71d56eb0bed2b # timeout=10
+[2026-11-09T15:20:54.372Z] + node -p require('./backend/package.json').version
+[2026-11-09T15:20:55.118Z] Image à produire : souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:20:55.462Z] Running in /var/jenkins_home/workspace/souverainrecrut-backend/backend
+[2026-11-09T15:20:55.825Z] + node --version
+[2026-11-09T15:20:55.825Z] v22.23.4
+[2026-11-09T15:20:55.825Z] + npm --version
+[2026-11-09T15:20:56.078Z] 10.9.9
+[2026-11-09T15:20:56.418Z] + npm ci
+[2026-11-09T15:21:18.734Z] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[2026-11-09T15:21:18.734Z] npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+[2026-11-09T15:21:18.734Z] npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+[2026-11-09T15:21:20.601Z] npm warn deprecated glob@11.1.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+[2026-11-09T15:21:20.601Z] npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+[2026-11-09T15:21:42.988Z] 
+[2026-11-09T15:21:42.988Z] added 562 packages, and audited 563 packages in 44s
+[2026-11-09T15:21:42.988Z] 
+[2026-11-09T15:21:42.988Z] 104 packages are looking for funding
+[2026-11-09T15:21:42.988Z]   run `npm fund` for details
+[2026-11-09T15:21:42.988Z] 
+[2026-11-09T15:21:42.988Z] 29 vulnerabilities (1 low, 19 moderate, 9 high)
+[2026-11-09T15:21:42.988Z] 
+[2026-11-09T15:21:42.988Z] To address issues that do not require attention, run:
+[2026-11-09T15:21:42.988Z]   npm audit fix
+[2026-11-09T15:21:42.988Z] 
+[2026-11-09T15:21:42.988Z] To address all issues (including breaking changes), run:
+[2026-11-09T15:21:42.988Z]   npm audit fix --force
+[2026-11-09T15:21:42.988Z] 
+[2026-11-09T15:21:42.988Z] Run `npm audit` for details.
+[2026-11-09T15:21:43.265Z] Running in /var/jenkins_home/workspace/souverainrecrut-backend/backend
+[2026-11-09T15:21:43.592Z] + npx prisma generate
+[2026-11-09T15:21:44.505Z] Loaded Prisma config from prisma.config.ts.
+[2026-11-09T15:21:44.505Z] 
+[2026-11-09T15:21:44.756Z] Prisma config detected, skipping environment variable loading.
+[2026-11-09T15:21:44.756Z] Prisma schema loaded from prisma/schema.prisma
+[2026-11-09T15:21:44.756Z] 
+[2026-11-09T15:21:44.756Z] ✔ Generated Prisma Client (v6.16.2) to ./node_modules/@prisma/client in 80ms
+[2026-11-09T15:21:44.756Z] 
+[2026-11-09T15:21:44.756Z] Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+[2026-11-09T15:21:44.756Z] 
+[2026-11-09T15:21:44.756Z] Tip: Want to turn off tips and other hints? https://pris.ly/tip-4-nohints
+[2026-11-09T15:21:44.756Z] 
+[2026-11-09T15:21:45.063Z] Running in /var/jenkins_home/workspace/souverainrecrut-backend/backend
+[2026-11-09T15:21:45.390Z] + npm run test:ci
+[2026-11-09T15:21:45.390Z] 
+[2026-11-09T15:21:45.390Z] > souverainrecrut-backend@1.0.0 test:ci
+[2026-11-09T15:21:45.390Z] > jest --ci --coverage --runInBand
+[2026-11-09T15:21:45.390Z] 
+[2026-11-09T15:21:57.666Z] GET /v1/users?page=2&limit=5 200 6.751 ms - 272
+[2026-11-09T15:21:57.666Z] GET /v1/users/u1 200 1.715 ms - 210
+[2026-11-09T15:21:57.666Z] GET /v1/users/inconnu 404 1.864 ms - 77
+[2026-11-09T15:21:57.666Z] POST /v1/users 201 67.858 ms - 210
+[2026-11-09T15:21:57.666Z] POST /v1/users 409 1.157 ms - 83
+[2026-11-09T15:21:57.666Z] POST /v1/users 400 2.272 ms - 394
+[2026-11-09T15:21:57.666Z] PASS integration tests/integration/users.test.ts
+[2026-11-09T15:21:57.666Z] PUT /v1/users/u1 200 1.350 ms - 212
+[2026-11-09T15:21:57.666Z] PUT /v1/users/inconnu 404 0.840 ms - 77
+[2026-11-09T15:21:57.666Z] PUT /v1/users/u1 400 2.820 ms - 140
+[2026-11-09T15:21:57.666Z] DELETE /v1/users/u1 200 1.034 ms - 210
+[2026-11-09T15:21:57.666Z] DELETE /v1/users/inconnu 404 1.884 ms - 77
+[2026-11-09T15:21:57.666Z] PASS unit tests/unit/repositories.test.ts
+[2026-11-09T15:21:58.218Z] PASS integration tests/integration/candidates.test.ts
+[2026-11-09T15:21:58.218Z] GET /v1/candidates?page=2&limit=10 200 1.282 ms - 252
+[2026-11-09T15:21:58.218Z] GET /v1/candidates/c1 200 1.334 ms - 189
+[2026-11-09T15:21:58.218Z] GET /v1/candidates/inconnu 404 0.783 ms - 74
+[2026-11-09T15:21:58.218Z] POST /v1/candidates 201 2.164 ms - 189
+[2026-11-09T15:21:58.218Z] POST /v1/candidates 409 0.905 ms - 94
+[2026-11-09T15:21:58.218Z] POST /v1/candidates 400 1.209 ms - 226
+[2026-11-09T15:21:58.218Z] PUT /v1/candidates/c1 200 1.275 ms - 189
+[2026-11-09T15:21:58.218Z] PUT /v1/candidates/inconnu 404 1.314 ms - 74
+[2026-11-09T15:21:58.218Z] DELETE /v1/candidates/c1 200 0.739 ms - 189
+[2026-11-09T15:21:58.218Z] DELETE /v1/candidates/inconnu 404 0.592 ms - 74
+[2026-11-09T15:21:58.218Z] PASS integration tests/integration/applications.test.ts
+[2026-11-09T15:21:58.469Z] GET /v1/applications?page=1&limit=5 200 1.954 ms - 225
+[2026-11-09T15:21:58.469Z] GET /v1/applications/a1 200 1.385 ms - 164
+[2026-11-09T15:21:58.469Z] GET /v1/applications/inconnu 404 1.282 ms - 77
+[2026-11-09T15:21:58.469Z] POST /v1/applications 201 1.201 ms - 164
+[2026-11-09T15:21:58.469Z] POST /v1/applications 400 0.835 ms - 368
+[2026-11-09T15:21:58.469Z] PUT /v1/applications/a1 200 1.105 ms - 165
+[2026-11-09T15:21:58.469Z] PUT /v1/applications/inconnu 404 0.596 ms - 77
+[2026-11-09T15:21:58.469Z] PUT /v1/applications/a1 400 0.650 ms - 200
+[2026-11-09T15:21:58.469Z] DELETE /v1/applications/a1 200 0.830 ms - 164
+[2026-11-09T15:21:58.469Z] DELETE /v1/applications/inconnu 404 0.833 ms - 77
+[2026-11-09T15:21:58.469Z] PASS integration tests/integration/access-control.test.ts
+[2026-11-09T15:21:58.720Z] GET /v1/candidates 401 0.648 ms - 78
+[2026-11-09T15:21:58.720Z] GET /v1/candidates 401 0.412 ms - 68
+[2026-11-09T15:21:58.720Z] GET /v1/candidates 401 0.833 ms - 79
+[2026-11-09T15:21:58.720Z] GET /v1/candidates 401 0.784 ms - 79
+[2026-11-09T15:21:58.720Z] DELETE /v1/candidates/c1 403 0.813 ms - 95
+[2026-11-09T15:21:58.720Z] DELETE /v1/jobs/j1 403 0.548 ms - 95
+[2026-11-09T15:21:58.720Z] DELETE /v1/applications/a1 403 1.336 ms - 95
+[2026-11-09T15:21:58.720Z] GET /v1/users 403 0.519 ms - 95
+[2026-11-09T15:21:58.720Z] POST /v1/users 403 0.538 ms - 95
+[2026-11-09T15:21:58.720Z] PUT /v1/users/u1 403 0.663 ms - 95
+[2026-11-09T15:21:58.720Z] GET /v1/candidates 200 0.570 ms - 86
+[2026-11-09T15:21:58.720Z] GET /v1/users 200 0.687 ms - 86
+[2026-11-09T15:21:58.720Z] PASS integration tests/integration/auth.test.ts
+[2026-11-09T15:21:58.720Z] POST /v1/auth/login 200 2.460 ms - 394
+[2026-11-09T15:21:58.720Z] POST /v1/auth/login 401 0.957 ms - 84
+[2026-11-09T15:21:58.720Z] POST /v1/auth/login 401 1.723 ms - 84
+[2026-11-09T15:21:58.720Z] GET /v1/auth/me 200 1.246 ms - 206
+[2026-11-09T15:21:58.720Z] GET /v1/auth/me 404 0.752 ms - 77
+[2026-11-09T15:21:58.971Z] PASS integration tests/integration/system.test.ts
+[2026-11-09T15:21:58.971Z] GET / 200 0.555 ms - 127
+[2026-11-09T15:21:58.971Z] GET /api-docs/ 200 1.584 ms - 3106
+[2026-11-09T15:21:58.971Z] GET /v1/info 200 0.510 ms - 242
+[2026-11-09T15:21:58.971Z] GET /v1/health 200 0.576 ms - 121
+[2026-11-09T15:21:58.971Z] GET /v1/ready 200 0.639 ms - 104
+[2026-11-09T15:21:58.971Z] GET /v1/ready 503 0.449 ms - 112
+[2026-11-09T15:21:58.971Z] GET /v1/dashboard/stats 200 1.075 ms - 101
+[2026-11-09T15:21:58.971Z] GET /v1/inexistante 404 0.396 ms - 87
+[2026-11-09T15:21:58.971Z] GET /v1/jobs 500 1.062 ms - 79
+[2026-11-09T15:21:59.222Z] GET /v1/jobs?page=3&limit=10 200 1.446 ms - 337
+[2026-11-09T15:21:59.222Z] GET /v1/jobs/j1 200 1.443 ms - 274
+[2026-11-09T15:21:59.222Z] GET /v1/jobs/inconnu 404 1.480 ms - 71
+[2026-11-09T15:21:59.222Z] POST /v1/jobs 201 2.676 ms - 274
+[2026-11-09T15:21:59.222Z] POST /v1/jobs 400 1.650 ms - 507
+[2026-11-09T15:21:59.222Z] PUT /v1/jobs/j1 200 1.575 ms - 273
+[2026-11-09T15:21:59.222Z] PUT /v1/jobs/inconnu 404 1.043 ms - 71
+[2026-11-09T15:21:59.222Z] PUT /v1/jobs/j1 400 0.696 ms - 163
+[2026-11-09T15:21:59.222Z] DELETE /v1/jobs/j1 200 0.760 ms - 274
+[2026-11-09T15:21:59.222Z] PASS integration tests/integration/jobs.test.ts
+[2026-11-09T15:21:59.222Z] DELETE /v1/jobs/inconnu 404 0.652 ms - 71
+[2026-11-09T15:21:59.222Z] PASS unit tests/unit/middlewares.test.ts
+[2026-11-09T15:21:59.222Z] PASS unit tests/unit/services.test.ts
+[2026-11-09T15:21:59.473Z] PASS unit tests/unit/middlewares/security.middleware.test.ts
+[2026-11-09T15:21:59.473Z] PASS unit tests/unit/validators.test.ts
+[2026-11-09T15:21:59.473Z] PASS unit tests/unit/pagination.test.ts
+[2026-11-09T15:21:59.473Z] PASS unit tests/unit/app-error.test.ts
+[2026-11-09T15:21:59.473Z] PASS unit tests/unit/async-handler.test.ts
+[2026-11-09T15:21:59.743Z] PASS unit tests/unit/env.test.ts
+[2026-11-09T15:21:59.743Z] ----------------------------|---------|----------|---------|---------|-------------------
+[2026-11-09T15:21:59.743Z] File                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+[2026-11-09T15:21:59.743Z] ----------------------------|---------|----------|---------|---------|-------------------
+[2026-11-09T15:21:59.743Z] All files                   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src                        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   app.ts                    |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/config                 |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   env.ts                    |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/controllers            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   application.controller.ts |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   auth.controller.ts        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   candidate.controller.ts   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   dashboard.controller.ts   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   health.controller.ts      |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   info.controller.ts        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   job.controller.ts         |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   user.controller.ts        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/docs                   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   application.docs.ts       |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   auth.docs.ts              |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   candidate.docs.ts         |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   dashboard.docs.ts         |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   health.docs.ts            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   info.docs.ts              |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   job.docs.ts               |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   swagger.ts                |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   user.docs.ts              |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/errors                 |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   app.error.ts              |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/middlewares            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   auth.middleware.ts        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   authorize.middleware.ts   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   cors.middleware.ts        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   error.middleware.ts       |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   logger.middleware.ts      |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   not-found.middleware.ts   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   validate.middleware.ts    |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/repositories           |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   application.repository.ts |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   base.repository.ts        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   candidate.repository.ts   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   dashboard.repository.ts   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   job.repository.ts         |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   user.repository.ts        |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/routes                 |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   application.routes.ts     |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   auth.routes.ts            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   candidate.routes.ts       |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   dashboard.routes.ts       |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   health.routes.ts          |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   index.ts                  |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   info.routes.ts            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   job.routes.ts             |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   user.routes.ts            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/services               |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   application.service.ts    |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   auth.service.ts           |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   candidate.service.ts      |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   dashboard.service.ts      |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   health.service.ts         |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   info.service.ts           |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   job.service.ts            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   user.service.ts           |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/utils                  |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   async-handler.ts          |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   pagination.ts             |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]  src/validators             |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   application.schema.ts     |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.743Z]   candidate.schema.ts       |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.744Z]   job.schema.ts             |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.744Z]   user.schema.ts            |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.744Z]  tests/helpers              |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.744Z]   auth.ts                   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.744Z]   http.ts                   |     100 |      100 |     100 |     100 |                   
+[2026-11-09T15:21:59.744Z] ----------------------------|---------|----------|---------|---------|-------------------
+[2026-11-09T15:21:59.744Z] 
+[2026-11-09T15:21:59.744Z] Test Suites: 16 passed, 16 total
+[2026-11-09T15:21:59.744Z] Tests:       127 passed, 127 total
+[2026-11-09T15:21:59.744Z] Snapshots:   0 total
+[2026-11-09T15:21:59.744Z] Time:        3.775 s, estimated 4 s
+[2026-11-09T15:21:59.744Z] Ran all test suites in 2 projects.
+Post stage
+[2026-11-09T15:22:00.210Z] Recording test results
+[2026-11-09T15:22:00.330Z] [Checks API] No suitable checks publisher found.
+[2026-11-09T15:22:00.398Z] Archiving artifacts
+[2026-11-09T15:22:00.692Z] Running in /var/jenkins_home/workspace/souverainrecrut-backend/backend
+[2026-11-09T15:22:00.855Z] Injecting SonarQube environment variables using the configuration: sonar
+[2026-11-09T15:22:01.284Z] + npx --yes @sonar/scan -Dsonar.host.url=http://sonarqube:9000 -Dsonar.token=******
+[2026-11-09T15:22:02.630Z] [WARN]  Bootstrapper: SONARQUBE_SCANNER_PARAMS is deprecated, please use SONAR_SCANNER_JSON_PARAMS instead
+[2026-11-09T15:22:02.630Z] [INFO]  Bootstrapper: Retrieving info from "package.json" file
+[2026-11-09T15:22:02.630Z] [INFO]  Bootstrapper: Platform: linux x64
+[2026-11-09T15:22:02.630Z] [INFO]  Bootstrapper: Server URL: http://sonarqube:9000
+[2026-11-09T15:22:02.630Z] [INFO]  Bootstrapper: Using SonarScanner for NPM (@sonar/scan)
+[2026-11-09T15:22:02.630Z] [INFO]  Bootstrapper: Version: 5.1.0
+[2026-11-09T15:22:02.630Z] [INFO]  Bootstrapper: SonarQube server version: 26.11.0
+[2026-11-09T15:22:02.630Z] [INFO]  Bootstrapper: JRE provisioning is supported
+[2026-11-09T15:22:03.543Z] [INFO]  Bootstrapper: Using JRE from the cache
+[2026-11-09T15:22:04.884Z] [INFO]  ScannerEngine: Starting SonarScanner Engine...
+[2026-11-09T15:22:04.884Z] [INFO]  ScannerEngine: Java 21.0.13 Eclipse Adoptium (64-bit)
+[2026-11-09T15:22:05.797Z] [INFO]  ScannerEngine: Load global settings
+[2026-11-09T15:22:06.048Z] [INFO]  ScannerEngine: Load global settings (done) | time=213ms
+[2026-11-09T15:22:06.048Z] [INFO]  ScannerEngine: Server id: 74C15348-AaG_uUd0OgLg0bA7EQa0
+[2026-11-09T15:22:06.048Z] [INFO]  ScannerEngine: Found an active CI vendor: 'Jenkins'
+[2026-11-09T15:22:06.608Z] [INFO]  ScannerEngine: Loading required plugins
+[2026-11-09T15:22:06.608Z] [INFO]  ScannerEngine: Load plugins index
+[2026-11-09T15:22:06.608Z] [INFO]  ScannerEngine: Load plugins index (done) | time=76ms
+[2026-11-09T15:22:06.608Z] [INFO]  ScannerEngine: Load/download plugins
+[2026-11-09T15:22:06.608Z] [INFO]  ScannerEngine: Load/download plugins (done) | time=20ms
+[2026-11-09T15:22:07.170Z] [INFO]  ScannerEngine: Load project settings for component key: 'souverainrecrut-backend'
+[2026-11-09T15:22:07.727Z] [INFO]  ScannerEngine: Load project settings for component key: 'souverainrecrut-backend' (done) | time=449ms
+[2026-11-09T15:22:07.727Z] [INFO]  ScannerEngine: Process project properties
+[2026-11-09T15:22:07.727Z] [INFO]  ScannerEngine: Process project properties (done) | time=39ms
+[2026-11-09T15:22:07.728Z] [INFO]  ScannerEngine: Project key: souverainrecrut-backend
+[2026-11-09T15:22:07.728Z] [INFO]  ScannerEngine: Base dir: /var/jenkins_home/workspace/souverainrecrut-backend/backend
+[2026-11-09T15:22:07.728Z] [INFO]  ScannerEngine: Working dir: /var/jenkins_home/workspace/souverainrecrut-backend/backend/.scannerwork
+[2026-11-09T15:22:07.983Z] [INFO]  ScannerEngine: Load quality profiles
+[2026-11-09T15:22:08.235Z] [INFO]  ScannerEngine: Load quality profiles (done) | time=279ms
+[2026-11-09T15:22:08.235Z] [INFO]  ScannerEngine: Load active rules
+[2026-11-09T15:22:09.329Z] [INFO]  ScannerEngine: Load active rules (done) | time=727ms
+[2026-11-09T15:22:09.329Z] [INFO]  ScannerEngine: Load analysis cache
+[2026-11-09T15:22:09.329Z] [INFO]  ScannerEngine: Load analysis cache | time=43ms
+[2026-11-09T15:22:09.674Z] [INFO]  ScannerEngine: Preprocessing files...
+[2026-11-09T15:22:10.094Z] [INFO]  ScannerEngine: 1 language detected in 81 preprocessed files (done) | time=417ms
+[2026-11-09T15:22:10.094Z] [INFO]  ScannerEngine: 0 files ignored because of inclusion/exclusion patterns
+[2026-11-09T15:22:10.094Z] [INFO]  ScannerEngine: 1 directory skipped because of exclusion patterns (content not counted)
+[2026-11-09T15:22:10.094Z] [INFO]  ScannerEngine: 0 files ignored because of scm ignore settings
+[2026-11-09T15:22:10.094Z] [INFO]  ScannerEngine: Loading plugins for detected languages
+[2026-11-09T15:22:10.094Z] [INFO]  ScannerEngine: Load/download plugins
+[2026-11-09T15:22:13.261Z] [INFO]  ScannerEngine: Load/download plugins (done) | time=2770ms
+[2026-11-09T15:22:17.220Z] [INFO]  ScannerEngine: Load project repositories
+[2026-11-09T15:22:18.198Z] [INFO]  ScannerEngine: Load project repositories (done) | time=2109ms
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine: Indexing files...
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine: Project configuration:
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine:   Excluded sources: src/docs/**
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine:   Excluded sources for coverage: src/server.ts, src/config/prisma.ts, src/**/*.d.ts
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine: 80 files indexed (done) | time=44ms
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine: Quality profile for ts: Sonar way core
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine: ------------- Run sensors on module souverainrecrut-backend
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine: Load metrics repository
+[2026-11-09T15:22:18.449Z] [INFO]  ScannerEngine: Load metrics repository (done) | time=53ms
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor IaC YAML File Type Classification Sensor [iac]
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor IaC YAML File Type Classification Sensor [iac] (done) | time=13ms
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor IaC hadolint report Sensor [iac]
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor IaC hadolint report Sensor [iac] (done) | time=0ms
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor Java Config Sensor [iac]
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: There are no files to be analyzed for the Java language
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor Java Config Sensor [iac] (done) | time=1ms
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor IaC Docker Sensor [iac]
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: There are no files to be analyzed for the Docker language
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor IaC Docker Sensor [iac] (done) | time=15ms
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor JavaScript/TypeScript module configuration [javascript]
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor JavaScript/TypeScript module configuration [javascript] (done) | time=2ms
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Sensor JavaScript/TypeScript Coverage [javascript]
+[2026-11-09T15:22:19.001Z] [INFO]  ScannerEngine: Analysing [/var/jenkins_home/workspace/souverainrecrut-backend/backend/coverage/lcov.info]
+[2026-11-09T15:22:19.252Z] [WARN]  ScannerEngine: Could not resolve 9 file paths in [/var/jenkins_home/workspace/souverainrecrut-backend/backend/coverage/lcov.info]
+[2026-11-09T15:22:19.253Z] [WARN]  ScannerEngine: First unresolved path: src/docs/application.docs.ts (Run in DEBUG mode to get full list of unresolved paths)
+[2026-11-09T15:22:19.253Z] [INFO]  ScannerEngine: Sensor JavaScript/TypeScript Coverage [javascript] (done) | time=130ms
+[2026-11-09T15:22:19.253Z] [INFO]  ScannerEngine: Sensor TextAndSecretsSensor [text]
+[2026-11-09T15:22:19.253Z] [INFO]  ScannerEngine: Available processors: 8
+[2026-11-09T15:22:19.253Z] [INFO]  ScannerEngine: Using 8 threads for analysis.
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: Start fetching files for the text and secrets analysis
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: Using Git CLI to retrieve dirty files
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: Retrieving language associated files and files included via "sonar.text.inclusions" that are tracked by git
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: Starting the text and secrets analysis
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: 69 source files to be analyzed for the text and secrets analysis
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: 69/69 source files have been analyzed for the text and secrets analysis
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: Sensor TextAndSecretsSensor [text] (done) | time=656ms
+[2026-11-09T15:22:19.805Z] [INFO]  ScannerEngine: ------------- Run sensors on project
+[2026-11-09T15:22:20.056Z] [INFO]  ScannerEngine: Sensor JavaScript/TypeScript/CSS analysis [javascript]
+[2026-11-09T15:22:20.607Z] [INFO]  ScannerEngine: Detected os: Linux arch: amd64 alpine: false. Platform: LINUX_X64
+[2026-11-09T15:22:20.608Z] [INFO]  ScannerEngine: Deploy location /root/.sonar/js/node-runtime, tagetRuntime: /root/.sonar/js/node-runtime/node,  version: /root/.sonar/js/node-runtime/version.txt
+[2026-11-09T15:22:20.608Z] [INFO]  ScannerEngine: Using embedded Node.js runtime.
+[2026-11-09T15:22:20.608Z] [INFO]  ScannerEngine: Using Node.js executable: '/root/.sonar/js/node-runtime/node'.
+[2026-11-09T15:22:25.810Z] [INFO]  ScannerEngine: Memory configuration: OS (7830 MB), Node.js (2240 MB).
+[2026-11-09T15:22:25.810Z] [INFO]  ScannerEngine: gRPC analyze-project server listening on 127.0.0.1:34803
+[2026-11-09T15:22:25.810Z] [INFO]  ScannerEngine: Plugin version: [14.3.0.46350]
+[2026-11-09T15:22:40.575Z] [INFO]  ScannerEngine: Resolving provided TSConfig files using '/var/jenkins_home/workspace/souverainrecrut-backend/backend/tsconfig.json'
+[2026-11-09T15:22:40.576Z] [INFO]  ScannerEngine: Found 1 tsconfig.json file(s): [/var/jenkins_home/workspace/souverainrecrut-backend/backend/tsconfig.json]
+[2026-11-09T15:22:52.682Z] [INFO]  ScannerEngine: 69 source files to be analyzed
+[2026-11-09T15:22:52.682Z] [INFO]  ScannerEngine: Creating TypeScript(6.0.3) program with configuration file /var/jenkins_home/workspace/souverainrecrut-backend/backend/tsconfig.json [lib: lib.es2024.d.ts, lib.dom.d.ts]
+[2026-11-09T15:22:52.682Z] [INFO]  ScannerEngine: Analyzing 49 file(s) from tsconfig /var/jenkins_home/workspace/souverainrecrut-backend/backend/tsconfig.json (340 total files in program)
+[2026-11-09T15:22:52.682Z] [INFO]  ScannerEngine: Analyzing 20 file(s) using merged compiler options [lib: lib.es2024.d.ts, lib.dom.d.ts]
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: 69/69 source files have been analyzed
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Hit the cache for 0 out of 69
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Miss the cache for 69 out of 69: ANALYSIS_MODE_INELIGIBLE [69/69]
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Sensor JavaScript/TypeScript/CSS analysis [javascript] (done) | time=31389ms
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Sensor IaC Project Sensor [iac]
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Sensor IaC Project Sensor [iac] (done) | time=2ms
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Sensor Zero Coverage Sensor
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Sensor Zero Coverage Sensor (done) | time=0ms
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: ------------- Gather SCA dependencies on project
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Dependency analysis skipped
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: CPD Executor 11 files had no CPD blocks
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: CPD Executor Calculating CPD for 38 files
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: CPD Executor CPD calculation finished (done) | time=45ms
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: SCM revision ID '12a585bd68aa08d37a38fa8cb3a71d56eb0bed2b'
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Analysis report generated in 221ms, dir size=407.5 kB
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Analysis report compressed in 111ms, zip size=203.3 kB
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Analysis report uploaded in 284ms
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: ANALYSIS SUCCESSFUL, you can find the results at: http://sonarqube:9000/dashboard?id=souverainrecrut-backend
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: More about the report processing at http://sonarqube:9000/api/ce/task?id=935a4b27-d363-470a-ab48-2d68b72c9055
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: Analysis total time: 47.507 s
+[2026-11-09T15:22:52.683Z] [INFO]  ScannerEngine: SonarScanner Engine completed successfully
+[2026-11-09T15:22:54.745Z] Timeout set to expire in 5 min 0 sec
+[2026-11-09T15:22:54.840Z] Checking status of SonarQube task '935a4b27-d363-470a-ab48-2d68b72c9055' on server 'sonar'
+[2026-11-09T15:22:54.906Z] SonarQube task '935a4b27-d363-470a-ab48-2d68b72c9055' status is 'IN_PROGRESS'
+[2026-11-09T15:23:04.956Z] SonarQube task '935a4b27-d363-470a-ab48-2d68b72c9055' status is 'SUCCESS'
+[2026-11-09T15:23:04.957Z] SonarQube task '935a4b27-d363-470a-ab48-2d68b72c9055' completed. Quality gate is 'OK'
+[2026-11-09T15:23:05.401Z] Running in /var/jenkins_home/workspace/souverainrecrut-backend/backend
+[2026-11-09T15:23:05.827Z] + docker build -t souverainrecrut-backend:1.0.0-12a585b .
+[2026-11-09T15:23:08.316Z] #0 building with "default" instance using docker driver
+[2026-11-09T15:23:08.316Z] 
+[2026-11-09T15:23:08.316Z] #1 [internal] load build definition from Dockerfile
+[2026-11-09T15:23:08.316Z] #1 transferring dockerfile: 1.20kB 0.1s done
+[2026-11-09T15:23:08.316Z] #1 DONE 0.1s
+[2026-11-09T15:23:08.570Z] 
+[2026-11-09T15:23:08.570Z] #2 [internal] load metadata for docker.io/library/node:22-alpine
+[2026-11-09T15:23:12.872Z] #2 DONE 3.9s
+[2026-11-09T15:23:12.872Z] 
+[2026-11-09T15:23:12.872Z] #3 [internal] load .dockerignore
+[2026-11-09T15:23:12.872Z] #3 transferring context: 351B 0.0s done
+[2026-11-09T15:23:12.872Z] #3 DONE 0.1s
+[2026-11-09T15:23:12.872Z] 
+[2026-11-09T15:23:12.872Z] #4 [builder 1/7] FROM docker.io/library/node:22-alpine@sha256:0e1754758c2df4cfa3e68d59e2e1b7374bb7fd9ea6328eaaacf15cc934af8202
+[2026-11-09T15:23:12.872Z] #4 resolve docker.io/library/node:22-alpine@sha256:0e1754758c2df4cfa3e68d59e2e1b7374bb7fd9ea6328eaaacf15cc934af8202 0.1s done
+[2026-11-09T15:23:12.872Z] #4 DONE 0.1s
+[2026-11-09T15:23:12.873Z] 
+[2026-11-09T15:23:12.873Z] #5 [internal] load build context
+[2026-11-09T15:23:12.873Z] #5 transferring context: 4.34kB 0.0s done
+[2026-11-09T15:23:12.873Z] #5 DONE 0.1s
+[2026-11-09T15:23:12.873Z] 
+[2026-11-09T15:23:12.874Z] #6 [builder 3/7] COPY package*.json ./
+[2026-11-09T15:23:12.874Z] #6 CACHED
+[2026-11-09T15:23:12.874Z] 
+[2026-11-09T15:23:12.874Z] #7 [builder 5/7] COPY . .
+[2026-11-09T15:23:12.874Z] #7 CACHED
+[2026-11-09T15:23:12.874Z] 
+[2026-11-09T15:23:12.874Z] #8 [runner 6/7] COPY --from=builder /app/prisma ./prisma
+[2026-11-09T15:23:12.874Z] #8 CACHED
+[2026-11-09T15:23:12.874Z] 
+[2026-11-09T15:23:12.874Z] #9 [runner 4/7] RUN npm ci --omit=dev  && npm cache clean --force  && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack            /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack            /opt/yarn-* /usr/local/bin/yarn /usr/local/bin/yarnpkg
+[2026-11-09T15:23:12.874Z] #9 CACHED
+[2026-11-09T15:23:12.874Z] 
+[2026-11-09T15:23:12.874Z] #10 [builder 4/7] RUN npm ci
+[2026-11-09T15:23:12.874Z] #10 CACHED
+[2026-11-09T15:23:12.875Z] 
+[2026-11-09T15:23:12.875Z] #11 [builder 6/7] RUN npx prisma generate
+[2026-11-09T15:23:12.875Z] #11 CACHED
+[2026-11-09T15:23:12.875Z] 
+[2026-11-09T15:23:12.875Z] #12 [runner 5/7] COPY --from=builder /app/dist ./dist
+[2026-11-09T15:23:12.875Z] #12 CACHED
+[2026-11-09T15:23:12.875Z] 
+[2026-11-09T15:23:12.875Z] #13 [builder 2/7] WORKDIR /app
+[2026-11-09T15:23:12.875Z] #13 CACHED
+[2026-11-09T15:23:12.875Z] 
+[2026-11-09T15:23:12.875Z] #14 [builder 7/7] RUN npm run build
+[2026-11-09T15:23:12.875Z] #14 CACHED
+[2026-11-09T15:23:12.875Z] 
+[2026-11-09T15:23:12.875Z] #15 [runner 7/7] COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+[2026-11-09T15:23:12.875Z] #15 CACHED
+[2026-11-09T15:23:12.875Z] 
+[2026-11-09T15:23:12.875Z] #16 exporting to image
+[2026-11-09T15:23:12.875Z] #16 exporting layers 0.0s done
+[2026-11-09T15:23:12.875Z] #16 exporting manifest sha256:c7b382dcdec0583f5dfc4b46601a0be76ed6a5eea7a9cf329368729a1862464c 0.0s done
+[2026-11-09T15:23:12.875Z] #16 exporting config sha256:eab6b0cf9e278a6105d5dc9ee322e1ecd3d1fe79932996899a7498d2df5a159b
+[2026-11-09T15:23:13.125Z] #16 exporting config sha256:eab6b0cf9e278a6105d5dc9ee322e1ecd3d1fe79932996899a7498d2df5a159b done
+[2026-11-09T15:23:13.126Z] #16 exporting attestation manifest sha256:513de61804fbe8bf9284a1f2a7bb45f4c31e9ac2e00e569c588723f041278905 0.1s done
+[2026-11-09T15:23:13.126Z] #16 exporting manifest list sha256:5c9992b3b2457499fa8e06942ec029505f0d96195938cf6c1916eb601e66a629
+[2026-11-09T15:23:13.376Z] #16 exporting manifest list sha256:5c9992b3b2457499fa8e06942ec029505f0d96195938cf6c1916eb601e66a629 0.1s done
+[2026-11-09T15:23:13.376Z] #16 naming to docker.io/library/souverainrecrut-backend:1.0.0-12a585b done
+[2026-11-09T15:23:13.376Z] #16 unpacking to docker.io/library/souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:23:23.264Z] #16 unpacking to docker.io/library/souverainrecrut-backend:1.0.0-12a585b 9.2s done
+[2026-11-09T15:23:23.264Z] #16 DONE 9.6s
+[2026-11-09T15:23:24.112Z] + mkdir -p reports
+[2026-11-09T15:23:30.860Z] + trivy image --cache-dir /var/jenkins_home/.cache/trivy --no-progress --severity HIGH,CRITICAL --format table --output reports/trivy-image.txt souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:31Z	INFO	[vuln] Vulnerability scanning is enabled
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:31Z	INFO	[secret] Secret scanning is enabled
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:31Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:31Z	INFO	[secret] Please see https://trivy.dev/docs/v0.76/guide/scanner/secret#recommendation for faster secret detection
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:32Z	INFO	Detected OS	family="alpine" version="3.24.4"
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:32Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=19
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:32Z	INFO	Number of language-specific files	num=1
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:32Z	INFO	[node-pkg] Detecting vulnerabilities...
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:32Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.
+[2026-11-09T15:23:32.204Z] 2026-11-09T15:23:32Z	INFO	Table result includes only package filenames. Use '--format json' option to get the full path to the package file.
+[2026-11-09T15:23:32.583Z] + trivy image --cache-dir /var/jenkins_home/.cache/trivy --no-progress --severity CRITICAL --ignore-unfixed --exit-code 1 souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	[vuln] Vulnerability scanning is enabled
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	[secret] Secret scanning is enabled
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	[secret] Please see https://trivy.dev/docs/v0.76/guide/scanner/secret#recommendation for faster secret detection
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	Detected OS	family="alpine" version="3.24.4"
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=19
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	Number of language-specific files	num=1
+[2026-11-09T15:23:32.584Z] 2026-11-09T15:23:32Z	INFO	[node-pkg] Detecting vulnerabilities...
+[2026-11-09T15:23:32.838Z] 2026-11-09T15:23:32Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.
+[2026-11-09T15:23:32.838Z] 
+[2026-11-09T15:23:32.838Z] Report Summary
+[2026-11-09T15:23:32.838Z] 
+[2026-11-09T15:23:32.838Z] ┌──────────────────────────────────────────────────────────────────────────┬──────────┬─────────────────┬─────────┐
+[2026-11-09T15:23:32.838Z] │                                  Target                                  │   Type   │ Vulnerabilities │ Secrets │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ souverainrecrut-backend:1.0.0-12a585b (alpine 3.24.4)                    │  alpine  │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/.prisma/client/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@apidevtools/json-schema-ref-parser/package.json        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@apidevtools/openapi-schemas/package.json               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@apidevtools/swagger-methods/package.json               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@apidevtools/swagger-parser/package.json                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@isaacs/cliui/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@prisma/client/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@prisma/config/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@prisma/debug/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.838Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.838Z] │ app/node_modules/@prisma/engines-version/package.json                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/@prisma/engines/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/@prisma/fetch-engine/package.json                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/@prisma/get-platform/package.json                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/@scarf/scarf/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/@standard-schema/spec/package.json                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/@types/json-schema/package.json                         │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/accepts/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/ajv-draft-04/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/ajv/package.json                                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/argparse/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/basic-auth/node_modules/safe-buffer/package.json        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/basic-auth/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/bcrypt/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/body-parser/node_modules/content-type/package.json      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/body-parser/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/buffer-equal-constant-time/package.json                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/bytes/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/c12/node_modules/dotenv/package.json                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/c12/package.json                                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/call-bind-apply-helpers/package.json                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/call-bound/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/call-me-maybe/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/chokidar/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/citty/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/commander/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/confbox/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/consola/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/content-disposition/package.json                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.839Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.839Z] │ app/node_modules/content-type/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/cookie-signature/package.json                           │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/cookie/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/cors/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/cross-spawn/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/debug/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/deepmerge-ts/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/defu/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/depd/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/destr/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/doctrine/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/dotenv/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/dunder-proto/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/ecdsa-sig-formatter/package.json                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/ee-first/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/effect/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/empathic/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/encodeurl/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/es-define-property/package.json                         │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/es-errors/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/es-object-atoms/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/escape-html/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/esutils/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/etag/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/express/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/exsolve/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/fast-check/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/fast-deep-equal/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/fast-uri/benchmark/package.json                         │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/fast-uri/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/finalhandler/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/foreground-child/package.json                           │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/forwarded/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/fresh/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.840Z] │ app/node_modules/function-bind/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.840Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/get-intrinsic/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/get-proto/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/giget/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/gopd/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/has-symbols/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/hasown/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/http-errors/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/iconv-lite/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/inherits/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/ipaddr.js/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/is-promise/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/isexe/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/jackspeak/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.841Z] │ app/node_modules/jiti/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.841Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/js-yaml/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/json-schema-traverse/package.json                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/jsonwebtoken/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/jwa/package.json                                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/jws/package.json                                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.includes/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.isboolean/package.json                           │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.isinteger/package.json                           │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.isnumber/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.isplainobject/package.json                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.isstring/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.mergewith/package.json                           │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lodash.once/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/lru-cache/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/math-intrinsics/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/media-typer/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/merge-descriptors/package.json                          │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/mime-db/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/mime-types/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/minipass/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/morgan/node_modules/debug/package.json                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/morgan/node_modules/ms/package.json                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/morgan/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/ms/package.json                                         │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/negotiator/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/node-addon-api/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.842Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.842Z] │ app/node_modules/node-fetch-native/package.json                          │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/node-gyp-build/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/nypm/node_modules/citty/package.json                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/nypm/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/object-assign/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/object-inspect/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/ohash/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/on-finished/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/on-headers/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/once/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/openapi-types/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/package-json-from-dist/package.json                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/parseurl/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/path-key/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/path-scurry/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/path-to-regexp/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/pathe/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/perfect-debounce/package.json                           │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/pkg-types/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/prisma/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/prisma/prisma-client/package.json                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/proxy-addr/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/pure-rand/package.json                                  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/qs/package.json                                         │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.843Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.843Z] │ app/node_modules/range-parser/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.844Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.844Z] │ app/node_modules/raw-body/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.844Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.844Z] │ app/node_modules/rc9/package.json                                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.844Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.844Z] │ app/node_modules/readdirp/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.844Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.844Z] │ app/node_modules/require-from-string/package.json                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.844Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.844Z] │ app/node_modules/router/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/safe-buffer/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/safer-buffer/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/semver/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/send/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/serve-static/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/setprototypeof/package.json                             │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/shebang-command/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/shebang-regex/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/side-channel-list/package.json                          │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/side-channel-map/package.json                           │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/side-channel-weakmap/package.json                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/side-channel/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/signal-exit/package.json                                │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.845Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.845Z] │ app/node_modules/statuses/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-jsdoc/docusaurus/package.json                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-jsdoc/node_modules/balanced-match/package.json  │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-jsdoc/node_modules/brace-expansion/package.json │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-jsdoc/node_modules/glob/package.json            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-jsdoc/node_modules/minimatch/package.json       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-jsdoc/package.json                              │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-ui-dist/package.json                            │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/swagger-ui-express/package.json                         │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/tinyexec/package.json                                   │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/toidentifier/package.json                               │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/type-is/node_modules/content-type/package.json          │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/type-is/package.json                                    │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/typescript/package.json                                 │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/unpipe/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/vary/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/which/package.json                                      │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/wrappy/package.json                                     │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/yaml/package.json                                       │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/node_modules/zod/package.json                                        │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] ├──────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+[2026-11-09T15:23:32.846Z] │ app/package.json                                                         │ node-pkg │        0        │    -    │
+[2026-11-09T15:23:32.846Z] └──────────────────────────────────────────────────────────────────────────┴──────────┴─────────────────┴─────────┘
+[2026-11-09T15:23:32.846Z] Legend:
+[2026-11-09T15:23:32.846Z] - '-': Not scanned
+[2026-11-09T15:23:32.846Z] - '0': Clean (no security findings detected)
+[2026-11-09T15:23:32.846Z] 
+Post stage
+[2026-11-09T15:23:32.980Z] Archiving artifacts
+[2026-11-09T15:23:34.010Z] Masking supported pattern matches of $DH_TOKEN
+[2026-11-09T15:23:34.493Z] + echo ****
+[2026-11-09T15:23:34.493Z] + docker login -u aarontiavin --password-stdin
+[2026-11-09T15:23:35.839Z] 
+[2026-11-09T15:23:35.839Z] WARNING! Your credentials are stored unencrypted in '/root/.docker/config.json'.
+[2026-11-09T15:23:35.839Z] Configure a credential helper to remove this warning. See
+[2026-11-09T15:23:35.839Z] https://docs.docker.com/go/credential-store/
+[2026-11-09T15:23:35.839Z] 
+[2026-11-09T15:23:35.839Z] Login Succeeded
+[2026-11-09T15:23:35.839Z] + docker tag souverainrecrut-backend:1.0.0-12a585b aarontiavin/souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:23:35.839Z] + docker push aarontiavin/souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:23:35.839Z] The push refers to repository [docker.io/aarontiavin/souverainrecrut-backend]
+[2026-11-09T15:23:35.839Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.091Z] 881fc932939e: Waiting
+[2026-11-09T15:23:36.091Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:36.091Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:36.091Z] 071409a40254: Waiting
+[2026-11-09T15:23:36.091Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:36.091Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:36.091Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:36.091Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:36.091Z] fe82079381df: Waiting
+[2026-11-09T15:23:36.091Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.091Z] f87f3775f528: Waiting
+[2026-11-09T15:23:36.091Z] f87f3775f528: Waiting
+[2026-11-09T15:23:36.092Z] 881fc932939e: Waiting
+[2026-11-09T15:23:36.092Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:36.092Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:36.092Z] 071409a40254: Waiting
+[2026-11-09T15:23:36.092Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:36.092Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:36.092Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:36.092Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:36.092Z] fe82079381df: Waiting
+[2026-11-09T15:23:36.092Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.343Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:36.343Z] 071409a40254: Waiting
+[2026-11-09T15:23:36.343Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:36.343Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:36.343Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:36.343Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:36.343Z] fe82079381df: Waiting
+[2026-11-09T15:23:36.344Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.344Z] f87f3775f528: Waiting
+[2026-11-09T15:23:36.344Z] 881fc932939e: Waiting
+[2026-11-09T15:23:36.344Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:36.344Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:36.344Z] 071409a40254: Waiting
+[2026-11-09T15:23:36.344Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:36.344Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:36.344Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:36.344Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:36.344Z] fe82079381df: Waiting
+[2026-11-09T15:23:36.344Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.344Z] f87f3775f528: Waiting
+[2026-11-09T15:23:36.344Z] 881fc932939e: Waiting
+[2026-11-09T15:23:36.344Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:36.344Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:36.344Z] 071409a40254: Waiting
+[2026-11-09T15:23:36.344Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:36.344Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:36.344Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:36.344Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:36.344Z] fe82079381df: Waiting
+[2026-11-09T15:23:36.344Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.344Z] f87f3775f528: Waiting
+[2026-11-09T15:23:36.344Z] 881fc932939e: Waiting
+[2026-11-09T15:23:36.344Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:36.596Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:36.596Z] fe82079381df: Waiting
+[2026-11-09T15:23:36.596Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.596Z] f87f3775f528: Waiting
+[2026-11-09T15:23:36.596Z] 881fc932939e: Waiting
+[2026-11-09T15:23:36.596Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:36.596Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:36.596Z] 071409a40254: Waiting
+[2026-11-09T15:23:36.596Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:36.596Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:36.596Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:36.596Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:36.596Z] 071409a40254: Waiting
+[2026-11-09T15:23:36.596Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:36.596Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:36.597Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:36.597Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:36.597Z] fe82079381df: Waiting
+[2026-11-09T15:23:36.597Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:36.597Z] f87f3775f528: Waiting
+[2026-11-09T15:23:36.597Z] 881fc932939e: Waiting
+[2026-11-09T15:23:36.597Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.399Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.399Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.399Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.498Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.498Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.499Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.499Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.499Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.499Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.499Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.499Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.499Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.499Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.499Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.499Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.499Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.499Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.499Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.499Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.499Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.499Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.499Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.499Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.499Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.499Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.499Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.499Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.499Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.499Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.499Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.499Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.527Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.527Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.527Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.527Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.532Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.532Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.532Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.532Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.532Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.532Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.532Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.532Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.532Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.783Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.783Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.783Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.783Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.783Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.783Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.783Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.783Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.783Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.783Z] fe82079381df: Waiting
+[2026-11-09T15:23:37.783Z] 25f44d75b9d3: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.783Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.783Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 33e977f9cde7: Waiting
+[2026-11-09T15:23:37.783Z] 071409a40254: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] 2a9491572f6e: Waiting
+[2026-11-09T15:23:37.783Z] 881fc932939e: Waiting
+[2026-11-09T15:23:37.783Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:37.783Z] 3334868d30b2: Waiting
+[2026-11-09T15:23:37.783Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:37.783Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:37.783Z] f87f3775f528: Waiting
+[2026-11-09T15:23:38.034Z] f87f3775f528: Waiting
+[2026-11-09T15:23:38.035Z] 881fc932939e: Waiting
+[2026-11-09T15:23:38.035Z] df11f9b3da94: Waiting
+[2026-11-09T15:23:38.035Z] ea13cfbe7091: Waiting
+[2026-11-09T15:23:38.035Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:38.035Z] 31ba6d5a5738: Waiting
+[2026-11-09T15:23:38.035Z] 881fc932939e: Waiting
+[2026-11-09T15:23:38.035Z] 881fc932939e: Waiting
+[2026-11-09T15:23:38.285Z] 881fc932939e: Mounted from library/postgres
+[2026-11-09T15:23:38.536Z] 071409a40254: Pushed
+[2026-11-09T15:23:38.787Z] ea13cfbe7091: Pushed
+[2026-11-09T15:23:38.787Z] 25f44d75b9d3: Pushed
+[2026-11-09T15:23:38.787Z] fe82079381df: Pushed
+[2026-11-09T15:23:39.038Z] 3334868d30b2: Pushed
+[2026-11-09T15:23:39.590Z] 31ba6d5a5738: Pushed
+[2026-11-09T15:23:41.454Z] df11f9b3da94: Pushed
+[2026-11-09T15:23:51.335Z] f87f3775f528: Pushed
+[2026-11-09T15:24:23.268Z] 2a9491572f6e: Pushed
+[2026-11-09T15:24:38.047Z] 33e977f9cde7: Pushed
+[2026-11-09T15:24:38.960Z] 1.0.0-12a585b: digest: sha256:5c9992b3b2457499fa8e06942ec029505f0d96195938cf6c1916eb601e66a629 size: 856
+Post stage
+[2026-11-09T15:24:39.366Z] + docker logout
+[2026-11-09T15:24:39.367Z] Removing login credentials for https://index.docker.io/v1/
+[2026-11-09T15:24:39.900Z] + [ -z 1.0.0-12a585b ]
+[2026-11-09T15:24:39.900Z] + docker image rm souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:24:39.900Z] Untagged: souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:24:40.007Z] Image publiée : <compte>/souverainrecrut-backend:1.0.0-12a585b
+[2026-11-09T15:24:40.234Z] ha:////4KvC86fEtp5cJE3kHgyP/N14JJtzWE6/ECUZqxj4WPU7AAAAqh+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFeO0JDNLIwNDXUuDFFNdExNLU11LMyBhkJaUamGUkmScbJYCAKNz15GvAAAA
+Finished: SUCCESS
