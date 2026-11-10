@@ -52,8 +52,8 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 | # | Livrable | Emplacement | État | Notes |
 |---|---|---|---|---|
 | J1-01 | Fork + clone, branche `Dev`, `npm ci`, `npx prisma generate` | — | ✅ | |
-| J1-02 | Framework de tests configuré (ts-jest, supertest, jest-mock-extended, jest-junit) | `backend/jest.config.js`, `tsconfig.test.json` | ✅ | Seuil couverture 100 % (global) |
-| J1-03 | Tests auth, candidats, offres, candidatures, contrôle d'accès | `backend/tests/unit/`, `backend/tests/integration/` | ✅ | Prisma mocké (`tests/setup/prisma-mock.ts`) |
+| J1-02 | Framework de tests configuré (ts-jest, supertest, jest-mock-extended, jest-junit) | `backend/jest.config.js`, `tsconfig.test.json` | ✅ | Seuils : 100 % middlewares + validators, 90 % global (branches 70 %) |
+| J1-03 | Tests auth, candidats, offres, candidatures, contrôle d'accès | `backend/tests/unit/`, `backend/tests/integration/` | ✅ | 18 suites / 151 tests, Prisma mocké ; + CORS, contrat OpenAPI ↔ routes, 8 `it.failing` documentant les défauts connus (§8 bis) |
 | J1-04 | Rapport de couverture exploitable (lcov + junit) | `backend/coverage/`, `junit.xml` | ✅ | Généré par le pipeline |
 | J1-05 | Configuration SonarQube | `backend/sonar-project.properties` | ✅ | `src/docs/` exclu (Swagger) |
 | J1-06 | Quality Gate PASSED | SonarQube `http://localhost:9000` | ✅ | Webhook → Jenkins OK |
@@ -179,6 +179,26 @@ Remise : archive ZIP ou lien du dépôt GitHub/GitLab, **sans aucun secret** (`.
 - `SONAR_VALIDATEWEBHOOKS=false` : acceptable en local uniquement.
 - Image `node:22-alpine` sans npm, utilisateur `node` : réduction de la surface d'attaque.
 - Terraform : *(à compléter le Jour 2 selon l'environnement VMware disponible)*.
+
+## 8 bis. Défauts connus du dépôt de référence (hors périmètre de modification)
+
+Identifiés par la revue critique des tests du 10/11/2026. Chacun est décrit par un test **`it.failing`** dans
+`backend/tests/integration/known-defects.test.ts` (et `tests/unit/pagination.test.ts`) : le test exprime le comportement
+attendu, échoue aujourd'hui (donc compte comme réussi), et fera échouer le pipeline le jour où le défaut sera corrigé sans
+retirer le `.failing`. `backend/src/` n'étant pas modifiable dans ce projet, ils sont **tracés, pas corrigés**.
+
+| # | Défaut | Gravité | Où | Attendu |
+|---|---|---|---|---|
+| D1 | `PUT /users/:id` avec `password` : le mot de passe n'est pas re-hashé → **stocké en clair** | Critique | `UserService.update` | hash bcrypt comme à la création |
+| D2 | `GET /users` et `GET /users/:id` renvoient le **hash bcrypt** des utilisateurs | Haute | `UserRepository.findAll/findById` (pas de `select`) | champ `password` absent de la réponse |
+| D3 | `POST /auth/login` sans validation Zod : corps vide → 401/500 au lieu de 400 | Moyenne | `auth.routes.ts` | `validate(loginSchema)` → 400 |
+| D4 | `?page=abc` → `parseInt` = NaN → `skip: NaN` → 500 | Moyenne | `utils/pagination.ts` | repli sur `page=1, limit=10` |
+| D5 | Clé étrangère violée (`P2003`) non traduite → 500 | Moyenne | `errorMiddleware` | 400/404 explicite |
+| D6 | Un RECRUITER peut créer une offre avec le `recruiterId` d'un autre (pas de contrôle de propriété) | Moyenne | `job.routes.ts` / `JobService.create` | 403 ou `recruiterId` forcé à `req.user.id` |
+| — | `ApplicationService.updateStatus` / `ApplicationRepository.updateStatus` : code mort (aucune route) | Info | services / repositories | à supprimer ou exposer en `PATCH /applications/:id/status` |
+
+Limite assumée de la suite : Prisma est mocké partout, donc contraintes `@unique`, cascades et clés étrangères ne sont pas
+exercées contre PostgreSQL. Piste J2 : suite d'intégration sur Postgres éphémère dans Jenkins (Docker disponible).
 
 ## 9. Critères go / no-go pour le jury
 
