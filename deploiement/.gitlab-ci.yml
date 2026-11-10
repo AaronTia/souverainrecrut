@@ -45,8 +45,14 @@ validate-tag:
       echo "$IMAGE_TAG" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+-[0-9a-f]{7}$' \
         || { echo "ERREUR : tag '$IMAGE_TAG' invalide (attendu : X.Y.Z-sha7, jamais latest)"; exit 1; }
     - |
-      code=$(curl -s -o /dev/null -w '%{http_code}' \
-        "https://hub.docker.com/v2/repositories/${DOCKERHUB_USER}/souverainrecrut-backend/tags/${IMAGE_TAG}")
+      # 5 tentatives : le réseau d'un serveur de laboratoire peut avoir des coupures ponctuelles
+      code=000
+      for i in 1 2 3 4 5; do
+        code=$(curl -s -o /dev/null -m 20 -w '%{http_code}' \
+          "https://hub.docker.com/v2/repositories/${DOCKERHUB_USER}/souverainrecrut-backend/tags/${IMAGE_TAG}" || echo 000)
+        [ "$code" = "200" ] && break
+        echo "Tentative $i/5 : HTTP $code, nouvel essai dans 5 s"; sleep 5
+      done
       [ "$code" = "200" ] || { echo "ERREUR : ${DOCKERHUB_USER}/souverainrecrut-backend:${IMAGE_TAG} introuvable sur Docker Hub (HTTP $code)"; exit 1; }
     - 'echo "Tag valide et publié sur Docker Hub - ${IMAGE_TAG}"'
 

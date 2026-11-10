@@ -85,7 +85,7 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 |---|---|---|---|---|
 | J2-01 | VM Ubuntu Server 24.04 (2 vCPU, 4 Go, 30 Go, NAT/Bridged, SSH) | VMware | ✅ | VM Ubuntu **22.04** (cahier : 24.04), 2 vCPU, 3,8 Go, 29 Go, NAT, IP 192.168.139.128 |
 | J2-02 | IP, accès Internet et SSH vérifiés | — | ✅ | SSH par clé dédiée vérifié ; sudo sans mot de passe pour l'automatisation |
-| J2-03 | Snapshot avant configuration | VMware | ⚠️ | Snapshot « post-install » à confirmer dans VMware (non vérifiable depuis le poste) |
+| J2-03 | Snapshot avant configuration | VMware | ✅ | Snapshot « post-install » créé dans VMware (confirmé par l'étudiant, 10/11/2026) |
 | J2-04 | Terraform : `main.tf`, `variables.tf`, `outputs.tf`, `providers.tf` | `deploiement/terraform/` | ✅ | `providers/main/variables/outputs.tf` ; sans ESXi : contrôle SSH + génération d'inventaire (justifié, `terraform/README.md`) |
 | J2-05 | `terraform init / validate / plan / apply` joués | — | ✅ | `init/validate/plan/apply` joués, 2 ressources, `plan` idempotent – `reports/terraform-apply.txt` |
 
@@ -105,9 +105,9 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 | J2-10 | `.env.example` (variables API + Prisma) | `deploiement/deployment/.env.example` | ✅ | `.env.example` ; `.env` réel en 0600 sur le serveur, ignoré par Git |
 | J2-11 | Stratégie de migrations Prisma maîtrisée | compose / script | ✅ | `migrate deploy` avec les migrations extraites de l'image (`deploy.sh`) ; limites dans `procedure-rollback.md` |
 | J2-12 | Projet GitLab dédié au déploiement | GitLab | ✅ | `gitlab.com/WakakiVongola/souverainrecrut-deploy` (privé), identité vérifiée |
-| J2-13 | Variables CI/CD GitLab masquées : Docker Hub user/token, hôte, user SSH, clé privée, `IMAGE_TAG` | GitLab → Settings → CI/CD | ⬜ | À renseigner dans GitLab : DEPLOY_HOST, DEPLOY_USER, DOCKERHUB_USER, SSH_PRIVATE_KEY, POSTGRES_PASSWORD, JWT_SECRET |
-| J2-14 | `.gitlab-ci.yml` : valider le tag → SSH → transférer fichiers → `docker compose pull` → `up -d` → vérifier `ps` + API | `deploiement/.gitlab-ci.yml` | ⚠️ | Poussé et **validé par GitLab** (« Pipeline syntax is correct ») ; exécution en attente du runner + variables |
-| J2-15 | Approbation manuelle avant production (`when: manual`, environnement protégé) | `.gitlab-ci.yml` | ⚠️ | `when: manual` + `environment: production` écrits ; à démontrer avec un pipeline exécuté |
+| J2-13 | Variables CI/CD GitLab masquées : Docker Hub user/token, hôte, user SSH, clé privée, `IMAGE_TAG` | GitLab → Settings → CI/CD | ✅ | 6 variables (DEPLOY_HOST, DEPLOY_USER, DOCKERHUB_USER, SSH_PRIVATE_KEY *type File*, POSTGRES_PASSWORD et JWT_SECRET masquées), toutes *Protected* |
+| J2-14 | `.gitlab-ci.yml` : valider le tag → SSH → transférer fichiers → `docker compose pull` → `up -d` → vérifier `ps` + API | `deploiement/.gitlab-ci.yml` | ✅ | Pipeline #3049879562 : validate-tag → deploy-production → smoke-test **verts** sur le runner de la VM (captures 12 à 14) |
+| J2-15 | Approbation manuelle avant production (`when: manual`, environnement protégé) | `.gitlab-ci.yml` | ✅ | `deploy-production` en `when: manual` : approbation tracée par GitLab (Environments : @WakakiVongola, 10/11/2026 15:03) – capture 13 |
 
 ### 5.4 Validation et rollback
 
@@ -126,7 +126,7 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 | J2-21 | Signature d'image (`cosign`) | ⬜ | |
 | J2-22 | Métriques DORA dans le rapport final | ⬜ | Fréquence, délai, taux d'échec, temps de restauration |
 
-**État au 10/11/2026 (J2)** : 15/19 livrables complets, 3 partiels (snapshot à confirmer, pipeline GitLab écrit et validé mais pas encore exécuté, approbation manuelle à démontrer), 1 à faire (variables GitLab + runner).
+**État au 10/11/2026 (J2)** : **19/19 livrables complets**. Pipeline GitLab exécuté de bout en bout. Bonus non faits : SBOM, cosign, k6.
 
 **Résultat attendu J2** : API accessible sur le serveur, déployée depuis une image Docker Hub identifiée, avec procédure de vérification et de retour arrière documentée.
 

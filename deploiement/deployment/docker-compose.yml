@@ -15,6 +15,7 @@ networks:
 
 volumes:
   postgres_data:
+  npm_cache:
 
 services:
   db:
@@ -46,8 +47,13 @@ services:
     working_dir: /app
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}?schema=public
+      # Cache npm persistant : la CLI Prisma (et ses moteurs) n'est téléchargée qu'au premier déploiement
+      npm_config_prefer_offline: "true"
+      npm_config_update_notifier: "false"
+      CHECKPOINT_DISABLE: "1"
     volumes:
       - ./prisma:/app/prisma:ro
+      - npm_cache:/root/.npm
     command: sh -c "npx --yes prisma@${PRISMA_VERSION:-6.16.2} migrate deploy --schema prisma/schema.prisma"
     depends_on:
       db:

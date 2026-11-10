@@ -19,7 +19,7 @@ conteneur, scan, publication, puis déploiement approuvé et réversible.
 | Déploiement Compose + PostgreSQL, image tirée de Docker Hub | ✅ | `deploiement-preuves.txt` |
 | Migrations Prisma maîtrisées | ✅ `migrate deploy` depuis les fichiers **de l'image** | `deploy.sh` |
 | Persistance des données | ✅ après `down` + `up` et après rollback | `procedure-rollback.md` |
-| Pipeline GitLab avec approbation manuelle | ⚠️ écrit et validé par GitLab ; exécution de bout en bout en attente du runner et des variables | `.gitlab-ci.yml`, §5 |
+| Pipeline GitLab avec approbation manuelle | ✅ pipeline #3049879562 : `validate-tag` → `deploy-production` (approuvé) → `smoke-test`, tous verts | captures 12 à 14, `.gitlab-ci.yml` |
 | Rollback documenté **et testé** | ✅ 723d0f4 → 12a585b → 723d0f4 | `procedure-rollback.md` |
 
 ## 2. Choix techniques justifiés
@@ -68,13 +68,28 @@ contre PostgreSQL en CI. Piste : suite d'intégration sur un PostgreSQL éphém�
 | Terraform sans `vsphere_virtual_machine` | VMware Workstation, pas d'ESXi/vCenter (prévu au §4.2 du cahier) | Terraform vérifie le serveur et génère l'inventaire ; VM créée à la main avec snapshot |
 | Pas de HTTPS | environnement de laboratoire | API en HTTP sur réseau local ; reverse proxy TLS à ajouter en production |
 
-## 5. Ce qui reste à finaliser (honnêteté sur l'état)
+## 5. Exécution du pipeline GitLab et incidents rencontrés
 
-- Enregistrer le runner et renseigner les variables CI/CD dans GitLab, puis exécuter le pipeline
-  `validate-tag → deploy-production (approbation) → smoke-test` et joindre les captures.
-  Le déploiement a été **réalisé et vérifié via les mêmes scripts** (`deploy.sh`, `rollback.sh`) lancés en SSH ;
-  le pipeline GitLab ne fait qu'orchestrer ces scripts.
-- Options du cours non réalisées : SBOM (`syft`), signature d'image (`cosign`), tests de charge (`k6`).
+Le pipeline s'exécute sur un **GitLab Runner installé sur la VM** (executor `shell`, tag `souverainrecrut-vm`).
+Pipeline de référence **#3049879562** (commit `d2b6ad47`) : `validate-tag` ✅ → `deploy-production` ✅ (approuvé
+manuellement par `@WakakiVongola`, visible dans *Deploy > Environments*) → `smoke-test` ✅
+(`/v1/health` UP, `/v1/ready` READY, image en production = `1.0.0-723d0f4`). Durée : ~8 min 15 s.
+
+| # | Incident | Cause | Résolution |
+|---|---|---|---|
+| 1 | `.gitlab-ci.yml` refusé par GitLab | `echo "... : ..."` : le `: ` est lu comme une clé YAML | ligne entre apostrophes ; configuration validée (« Pipeline syntax is correct ») |
+| 2 | `validate-tag` échoue (`curl` code 56) | coupure réseau ponctuelle de la VM vers Docker Hub | 5 tentatives avec temporisation |
+| 3 | **Clé privée affichée dans le log d'un job** | `SSH_PRIVATE_KEY` créée en type *Variable* au lieu de *File* : `chmod 600 "$SSH_PRIVATE_KEY"` a reçu le contenu et l'a recopié dans son message d'erreur | variable recréée en type **File** ; logs concernés à effacer ; clé à renouveler (voir ci-dessous) |
+| 4 | Rollback redéployait la version courante | `deploy.sh` rechargeait `.env` et écrasait `IMAGE_TAG` | l'`IMAGE_TAG` de l'environnement prime désormais |
+| 5 | VM qui décroche par intermittence | instabilité du réseau virtuel VMware (NAT) | redémarrage du service NAT ; scripts idempotents et tentatives répétées |
+
+**Leçon de sécurité (incident 3)** : un secret multiligne ne peut pas être masqué par GitLab ; seul le type *File* évite
+qu'il apparaisse dans un log. Les deux logs concernés ont été **effacés** (*Erase job log*, 10/11/2026). La clé a été conservée (projet pédagogique,
+dépôt privé à un seul membre) ; en production réelle elle devrait être renouvelée (nouvelle clé, installation sur
+le serveur, retrait de l'ancienne).
+
+**Limites restantes** : options du cours non réalisées (SBOM `syft`, signature `cosign`, tests de charge `k6`) ; snapshot
+VMware « post-install » confirmé.
 
 ## 6. Métriques de la livraison
 
@@ -82,9 +97,10 @@ contre PostgreSQL en CI. Piste : suite d'intégration sur un PostgreSQL éphém�
 |---|---|
 | Builds Jenkins | 11 (5 en échec avant stabilisation, 3 verts de référence #9 à #11) |
 | Durée d'un build complet | ~5 min |
-| Temps de déploiement sur la VM | ~3 min (pull + migrations + démarrage) |
+| Durée du pipeline GitLab complet | ~8 min 15 s avant optimisation, dont 4 min 40 s pour `prisma migrate deploy` (la CLI Prisma était retéléchargée depuis npm à chaque déploiement) |
+| Migration Prisma après optimisation | **13 s** en cache (53 s au premier passage) grâce à un volume `npm_cache` : environ 20 fois plus rapide ; pipeline complet estimé à ~3 min |
 | Temps de restauration (rollback testé) | ~2 min |
-| Incidents documentés | 11 en CI (`etapes-bloquantes.md`) + 1 en déploiement (écrasement de `IMAGE_TAG`) |
+| Incidents documentés | 11 en CI (`etapes-bloquantes.md`) + 5 en déploiement (§5) |
 
 ## 7. Argumentaire pour le jury (MSPR 4.1 / 5.1)
 

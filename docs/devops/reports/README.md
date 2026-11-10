@@ -26,3 +26,6 @@ SonarQube n'exporte pas de rapport fichier en édition Community : résultats vi
 | 09 | `09-jenkins-credentials-masques.jpg` | Credentials `sonar-token` et `dockerhub` (secrets masqués) |
 | 10 | `10-sonarqube-webhook-jenkins.jpg` | Webhook SonarQube → `http://jenkins:8080/sonarqube-webhook/`, dernière livraison OK |
 | 11 | `11-redocly-api-docs.jpg` | Documentation API générée (Redocly) à partir de la spec exportée |
+| 12 | `12-gitlab-pipeline-vert.jpg` | Pipeline GitLab #3049879562 : validate-tag, deploy-production, smoke-test verts ; rollback disponible |
+| 13 | `13-gitlab-environnement-production.jpg` | GitLab Environments : déploiement `production` réussi, déclenché par @WakakiVongola (trace d'approbation) |
+| 14 | `14-gitlab-smoke-test-log.jpg` | Log du smoke-test : health UP, ready READY, image en production = tag demandé |

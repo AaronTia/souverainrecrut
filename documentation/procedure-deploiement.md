@@ -50,7 +50,7 @@ Sur la VM : `sudo gitlab-runner register --url https://gitlab.com --token <glrt-
 | Variable | Type / options |
 |---|---|
 | `DEPLOY_HOST`, `DEPLOY_USER`, `DOCKERHUB_USER` | variable simple |
-| `SSH_PRIVATE_KEY` | type **File**, *Protect* |
+| `SSH_PRIVATE_KEY` | type **File** (obligatoire), *Protect*. **Ne jamais utiliser le type Variable** : le contenu de la clé s'afficherait dans le log du job en cas d'erreur |
 | `POSTGRES_PASSWORD`, `JWT_SECRET` | **Masked** (≥ 8 car., JWT ≥ 32) |
 
 ## 6. Déployer
