@@ -4,6 +4,7 @@ Chaîne d'intégration continue du **Jour 1** : à chaque commit sur la branche 
 
 ```
 GitHub (Dev) ──Poll SCM──► Jenkins ──► Tests Jest (127, couverture 100 %)
+                                   ──► Docs API (OpenAPI → Redocly HTML)
                                    ──► SonarQube + Quality Gate (webhook)
                                    ──► docker build  backend/Dockerfile
                                    ──► Trivy (CRITICAL corrigeable = bloquant)
@@ -89,11 +90,12 @@ Paramètres SonarQube : `backend/sonar-project.properties` (clé `souverainrecru
 | 2 | Install | `npm ci` | lockfile incohérent | 47 s |
 | 3 | Prisma generate | `npx prisma generate` | schéma invalide | 1 s |
 | 4 | Tests | `npm run test:ci` (Jest, `--coverage`, JUnit) | test rouge ou couverture < 100 % | 15 s |
-| 5 | SonarQube | `npx @sonar/scan` | scanner en erreur | 53 s |
-| 6 | Quality Gate | `waitForQualityGate abortPipeline: true` | Quality Gate ≠ PASSED (timeout 5 min) | 10 s |
-| 7 | Build image | `docker build -t souverainrecrut-backend:$IMAGE_TAG backend/` | Dockerfile en erreur | 18 s |
-| 8 | Scan Trivy | rapport HIGH+CRITICAL archivé, puis `--severity CRITICAL --ignore-unfixed --exit-code 1` | ≥ 1 CRITICAL corrigeable | 9 s |
-| 9 | Push Docker Hub | `docker login --password-stdin` → `tag` → `push` | credential absent / refus du registre | 1 min 6 s |
+| 5 | Docs API | `npm run docs:api` : export de la spec swagger-jsdoc (`scripts/export-openapi.ts`) puis `@redocly/cli build-docs` | spec invalide | ~10 s |
+| 6 | SonarQube | `npx @sonar/scan` | scanner en erreur | 53 s |
+| 7 | Quality Gate | `waitForQualityGate abortPipeline: true` | Quality Gate ≠ PASSED (timeout 5 min) | 10 s |
+| 8 | Build image | `docker build -t souverainrecrut-backend:$IMAGE_TAG backend/` | Dockerfile en erreur | 18 s |
+| 9 | Scan Trivy | rapport HIGH+CRITICAL archivé, puis `--severity CRITICAL --ignore-unfixed --exit-code 1` | ≥ 1 CRITICAL corrigeable | 9 s |
+| 10 | Push Docker Hub | `docker login --password-stdin` → `tag` → `push` | credential absent / refus du registre | 1 min 6 s |
 | — | Post | `docker image rm` local, `docker logout` | — | — |
 
 Options : `timeout 30 min`, `disableConcurrentBuilds`, conservation des 10 derniers builds, `ansiColor`, `timestamps`.
@@ -104,6 +106,7 @@ Options : `timeout 30 min`, `disableConcurrentBuilds`, conservation des 10 derni
 |---|---|---|---|
 | `backend/reports/junit.xml` | jest-junit | onglet *Résultats des tests* | [reports/junit-result.xml](reports/junit-result.xml) |
 | `backend/coverage/lcov.info` | Jest | oui | [reports/lcov.info](reports/lcov.info) |
+| `backend/reports/openapi.json` + `api-docs.html` | swagger-jsdoc + Redocly | oui | [reports/openapi.json](reports/openapi.json), [reports/api-docs.html](reports/api-docs.html) |
 | Analyse SonarQube | scanner | http://localhost:9000/dashboard?id=souverainrecrut-backend | captures 05–06 |
 | `reports/trivy-image.txt` | Trivy | oui | [reports/trivy-image.txt](reports/trivy-image.txt) |
 | Image Docker | docker | — | `docker pull aarontiavin/souverainrecrut-backend:1.0.0-12a585b` |
@@ -125,6 +128,7 @@ Options : `timeout 30 min`, `disableConcurrentBuilds`, conservation des 10 derni
 cd backend
 npm ci && npx prisma generate
 npm run test:ci                              # tests + coverage/ + reports/junit.xml
+npm run docs:api                             # reports/openapi.json + reports/api-docs.html
 docker build -t souverainrecrut-backend:dev .
 trivy image --severity HIGH,CRITICAL souverainrecrut-backend:dev
 ```
@@ -136,7 +140,8 @@ trivy image --severity HIGH,CRITICAL souverainrecrut-backend:dev
 - **`src/docs/` exclu de SonarQube** : documentation Swagger générée, très répétitive, hors code métier.
 - **Poll SCM** plutôt que webhook GitHub : Jenkins n'est pas exposé sur Internet.
 - **Image finale** `node:22-alpine`, sans npm/yarn/corepack, utilisateur `node` : surface d'attaque réduite (a aussi éliminé la CVE `tar` du npm embarqué).
-- **Code applicatif inchangé** : `backend/src/` identique au dépôt de référence.
+- **Documentation API générée par le pipeline** : la spec OpenAPI est exportée depuis le code (`swagger-jsdoc`) à chaque build et rendue en HTML statique par Redocly, donc toujours synchrone avec l'API publiée.
+- **Code applicatif inchangé** : `backend/src/` identique au dépôt de référence (le script d'export vit dans `backend/scripts/`).
 
 ## 10. En cas d'échec
 

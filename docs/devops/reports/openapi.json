@@ -1,0 +1,1239 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SouverainRecrut API",
+    "version": "1.0.0",
+    "description": "API REST de la plateforme SouverainRecrut développée avec Express, TypeScript, Prisma et PostgreSQL.",
+    "contact": {
+      "name": "SouverainRecrut",
+      "email": "contact@souverainrecrut.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4500/v1",
+      "description": "Serveur de développement"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "Authentification des utilisateurs"
+    },
+    {
+      "name": "Users",
+      "description": "Gestion des utilisateurs"
+    },
+    {
+      "name": "Candidates",
+      "description": "Gestion des candidats"
+    },
+    {
+      "name": "Jobs",
+      "description": "Gestion des offres d'emploi"
+    },
+    {
+      "name": "Applications",
+      "description": "Gestion des candidatures"
+    },
+    {
+      "name": "Dashboard",
+      "description": "Statistiques de l'application"
+    },
+    {
+      "name": "Information",
+      "description": "Informations générales sur l'API"
+    },
+    {
+      "name": "Health",
+      "description": "Surveillance et état de l'API"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Authentifier un utilisateur",
+        "description": "Permet à un utilisateur de se connecter et de récupérer un token JWT.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "alice@souverainrecrut.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "password123"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connexion réussie.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "user": {
+                      "id": "cmr0rce840000yws4oao08la7",
+                      "firstName": "Alice",
+                      "lastName": "Diallo",
+                      "email": "alice@souverainrecrut.com",
+                      "role": "RECRUITER"
+                    },
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Email ou mot de passe invalide."
+          }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Profil de l'utilisateur connecté",
+        "description": "Retourne les informations de l'utilisateur authentifié.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profil utilisateur.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "cmr0rce840000yws4oao08la7",
+                    "firstName": "Alice",
+                    "lastName": "Diallo",
+                    "email": "alice@souverainrecrut.com",
+                    "role": "RECRUITER"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentification requise."
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Lister les utilisateurs",
+        "description": "Retourne la liste paginée des utilisateurs.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des utilisateurs.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "cmr0rce840000yws4oao08la7",
+                      "firstName": "Alice",
+                      "lastName": "Diallo",
+                      "email": "alice@souverainrecrut.com",
+                      "role": "RECRUITER"
+                    }
+                  ],
+                  "pagination": {
+                    "page": 1,
+                    "limit": 10,
+                    "total": 1,
+                    "totalPages": 1
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentification requise."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Créer un utilisateur",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Diallo"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "alice@souverainrecrut.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "password123"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "ADMIN",
+                      "RECRUITER"
+                    ],
+                    "example": "RECRUITER"
+                  }
+                },
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "email",
+                  "password",
+                  "role"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Utilisateur créé."
+          },
+          "400": {
+            "description": "Erreur de validation."
+          },
+          "409": {
+            "description": "Email déjà utilisé."
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Obtenir un utilisateur",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur trouvé."
+          },
+          "404": {
+            "description": "Utilisateur introuvable."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Modifier un utilisateur",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "ADMIN",
+                      "RECRUITER"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Utilisateur mis à jour."
+          },
+          "404": {
+            "description": "Utilisateur introuvable."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Supprimer un utilisateur",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Utilisateur supprimé."
+          },
+          "404": {
+            "description": "Utilisateur introuvable."
+          }
+        }
+      }
+    },
+    "/candidates": {
+      "get": {
+        "tags": [
+          "Candidates"
+        ],
+        "summary": "Lister les candidats",
+        "description": "Retourne la liste paginée des candidats.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des candidats.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "cmr0rce880001yws4aobnd3rl",
+                      "fullName": "Mamadou Bah",
+                      "email": "mamadou@example.com",
+                      "phone": "+224620000001"
+                    }
+                  ],
+                  "pagination": {
+                    "page": 1,
+                    "limit": 10,
+                    "total": 1,
+                    "totalPages": 1
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentification requise."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Candidates"
+        ],
+        "summary": "Créer un candidat",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fullName": {
+                    "type": "string",
+                    "example": "Jean Dupont"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "jean@example.com"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": "+33123456789"
+                  }
+                },
+                "required": [
+                  "fullName",
+                  "email",
+                  "phone"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Candidat créé."
+          },
+          "400": {
+            "description": "Erreur de validation."
+          },
+          "409": {
+            "description": "Email déjà utilisé."
+          }
+        }
+      }
+    },
+    "/candidates/{id}": {
+      "get": {
+        "tags": [
+          "Candidates"
+        ],
+        "summary": "Obtenir un candidat",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Candidat trouvé."
+          },
+          "404": {
+            "description": "Candidat introuvable."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Candidates"
+        ],
+        "summary": "Modifier un candidat",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fullName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Candidat mis à jour."
+          },
+          "404": {
+            "description": "Candidat introuvable."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Candidates"
+        ],
+        "summary": "Supprimer un candidat",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Candidat supprimé."
+          },
+          "404": {
+            "description": "Candidat introuvable."
+          }
+        }
+      }
+    },
+    "/jobs": {
+      "get": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Lister les offres d'emploi",
+        "description": "Retourne la liste paginée des offres d'emploi.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des offres.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "cmr0rce8a0003yws4haulp35i",
+                      "title": "Développeur Full Stack",
+                      "description": "Node.js / React",
+                      "location": "Conakry",
+                      "company": "SouverainTech",
+                      "recruiterId": "cmr0rce840000yws4oao08la7"
+                    }
+                  ],
+                  "pagination": {
+                    "page": 1,
+                    "limit": 10,
+                    "total": 1,
+                    "totalPages": 1
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentification requise."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Créer une offre d'emploi",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Développeur Backend"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Développement d'API REST avec Node.js et Prisma."
+                  },
+                  "location": {
+                    "type": "string",
+                    "example": "Conakry"
+                  },
+                  "company": {
+                    "type": "string",
+                    "example": "SouverainTech"
+                  },
+                  "recruiterId": {
+                    "type": "string",
+                    "example": "cmr0rce840000yws4oao08la7"
+                  }
+                },
+                "required": [
+                  "title",
+                  "description",
+                  "location",
+                  "company",
+                  "recruiterId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Offre créée."
+          },
+          "400": {
+            "description": "Erreur de validation."
+          }
+        }
+      }
+    },
+    "/jobs/{id}": {
+      "get": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Obtenir une offre d'emploi",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Offre trouvée."
+          },
+          "404": {
+            "description": "Offre introuvable."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Modifier une offre d'emploi",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "company": {
+                    "type": "string"
+                  },
+                  "recruiterId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Offre mise à jour."
+          },
+          "404": {
+            "description": "Offre introuvable."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Jobs"
+        ],
+        "summary": "Supprimer une offre d'emploi",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Offre supprimée."
+          },
+          "404": {
+            "description": "Offre introuvable."
+          }
+        }
+      }
+    },
+    "/applications": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Lister les candidatures",
+        "description": "Retourne la liste paginée des candidatures.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des candidatures.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "cmr0rce8c0005yws40qkwhdwa",
+                      "candidateId": "cmr0rce880001yws4aobnd3rl",
+                      "jobId": "cmr0rce8a0003yws4haulp35i",
+                      "status": "PENDING",
+                      "candidate": {
+                        "id": "cmr0rce880001yws4aobnd3rl",
+                        "fullName": "Mamadou Bah",
+                        "email": "mamadou@example.com"
+                      },
+                      "job": {
+                        "id": "cmr0rce8a0003yws4haulp35i",
+                        "title": "Développeur Full Stack",
+                        "company": "SouverainTech"
+                      }
+                    }
+                  ],
+                  "pagination": {
+                    "page": 1,
+                    "limit": 10,
+                    "total": 1,
+                    "totalPages": 1
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentification requise."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Créer une candidature",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "candidateId": {
+                    "type": "string",
+                    "example": "cmr0rce880001yws4aobnd3rl"
+                  },
+                  "jobId": {
+                    "type": "string",
+                    "example": "cmr0rce8a0003yws4haulp35i"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "PENDING",
+                      "REVIEW",
+                      "ACCEPTED",
+                      "REJECTED"
+                    ],
+                    "example": "PENDING"
+                  }
+                },
+                "required": [
+                  "candidateId",
+                  "jobId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Candidature créée."
+          },
+          "400": {
+            "description": "Erreur de validation."
+          }
+        }
+      }
+    },
+    "/applications/{id}": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Obtenir une candidature",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Candidature trouvée."
+          },
+          "404": {
+            "description": "Candidature introuvable."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Modifier une candidature",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "PENDING",
+                      "REVIEW",
+                      "ACCEPTED",
+                      "REJECTED"
+                    ],
+                    "example": "REVIEW"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Candidature mise à jour."
+          },
+          "404": {
+            "description": "Candidature introuvable."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Supprimer une candidature",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Candidature supprimée."
+          },
+          "404": {
+            "description": "Candidature introuvable."
+          }
+        }
+      }
+    },
+    "/dashboard/stats": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Statistiques du tableau de bord",
+        "description": "Retourne les principales statistiques de l'application.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Statistiques récupérées avec succès.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "users": 5,
+                    "candidates": 18,
+                    "jobs": 7,
+                    "applications": 24,
+                    "pendingApplications": 9
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentification requise."
+          }
+        }
+      }
+    },
+    "/info": {
+      "get": {
+        "tags": [
+          "Information"
+        ],
+        "summary": "Informations générales de l'API",
+        "description": "Retourne les métadonnées de l'API (version, environnement, documentation, endpoints de supervision...).",
+        "responses": {
+          "200": {
+            "description": "Informations de l'API récupérées avec succès.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "name": "SouverainRecrut API",
+                    "version": "1.0.0",
+                    "environment": "development",
+                    "apiVersion": "v1",
+                    "documentation": "/api-docs",
+                    "health": "/v1/health",
+                    "readiness": "/v1/ready",
+                    "node": "v22.17.0",
+                    "timestamp": "2026-07-01T22:30:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Vérifier l'état de l'API",
+        "description": "Retourne l'état général de l'API (Liveness Probe).",
+        "responses": {
+          "200": {
+            "description": "API opérationnelle.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "status": "UP",
+                    "timestamp": "2026-07-01T22:00:00.000Z",
+                    "uptime": 245.37,
+                    "environment": "development"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Vérifier que l'API est prête",
+        "description": "Vérifie la connexion à la base de données et indique si l'application est prête à recevoir du trafic (Readiness Probe).",
+        "responses": {
+          "200": {
+            "description": "Application prête.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "status": "READY",
+                    "database": "CONNECTED",
+                    "timestamp": "2026-07-01T22:00:00.000Z"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Application non prête.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": false,
+                  "data": {
+                    "status": "NOT_READY",
+                    "database": "DISCONNECTED",
+                    "timestamp": "2026-07-01T22:00:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -68,11 +68,12 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 | J1-15 | README du pipeline (prérequis, variables, déclencheurs, schéma) | `docs/devops/README-pipeline.md` | ✅ | Schéma, prérequis, credentials, variables, stages, seuils, choix |
 | J1-16 | Runbook « quoi faire quand une étape échoue » | `docs/devops/etapes-bloquantes.md` | ✅ | 11 incidents documentés |
 | J1-17 | Rapports archivés (tests, couverture, Sonar, Trivy) | `docs/devops/reports/` | ✅ | junit-result.xml, lcov.info, trivy-image.txt, console build #9 (+ README) |
-| J1-18 | Captures : build vert, Quality Gate, Trivy, image Docker Hub | `docs/devops/captures/` | ✅ | 10 captures (Jenkins ×5, SonarQube ×3, Docker Hub, webhook) |
+| J1-18 | Captures : build vert, Quality Gate, Trivy, image Docker Hub | `docs/devops/captures/` | ✅ | 11 captures (Jenkins ×5, SonarQube ×3, Docker Hub, webhook, Redocly) |
+| J1-19 | Documentation API générée par le pipeline (cours J1 slide 18) | `backend/scripts/export-openapi.ts`, stage *Docs API*, `reports/openapi.json` + `api-docs.html` | ✅ | Équivalent Node du `redocly build-docs` ; à confirmer sur le prochain build Jenkins |
 
 **Résultat attendu J1** : Jenkinsfile opérationnel, tests exécutables, couverture, résultats Sonar et Trivy, image versionnée publiée sur Docker Hub.
 
-**État au 10/11/2026 : J1 complet (18/18)** – build de référence Jenkins #9 sur `12a585b`. Reste pour le livrable final : recopier `Jenkinsfile`, `backend/Dockerfile`, `sonar-project.properties`, `docs/devops/reports/` et `README-pipeline.md` dans `integration-continue/`.
+**État au 10/11/2026 : J1 complet (19/19)** – build de référence Jenkins #9 sur `12a585b`. Reste pour le livrable final : recopier `Jenkinsfile`, `backend/Dockerfile`, `sonar-project.properties`, `docs/devops/reports/` et `README-pipeline.md` dans `integration-continue/`.
 
 ---
 

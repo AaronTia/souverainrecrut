@@ -5,6 +5,8 @@
 | `junit-result.xml` | Résultats JUnit agrégés par Jenkins (jest-junit) | 16 suites, 127 tests, 0 échec |
 | `lcov.info` | Couverture Jest (format LCOV, lue par SonarQube) | 100 % lignes / branches / fonctions |
 | `trivy-image.txt` | Scan de l'image `souverainrecrut-backend:1.0.0-12a585b` (HIGH + CRITICAL) | 0 CRITICAL, 16 HIGH (OS alpine 3.24.4 : 0) |
+| `openapi.json` | Spécification OpenAPI 3.0.3 exportée depuis `src/docs/swagger.ts` (stage Docs API) | 14 routes, 8 tags |
+| `api-docs.html` | Documentation API statique générée par Redocly à partir de `openapi.json` | 279 Ko, autonome |
 | `jenkins-build-9-console.log` | Console complète du build (ANSI retiré) | `Finished: SUCCESS`, digest `sha256:5c9992b3b245…` |
 
 SonarQube n'exporte pas de rapport fichier en édition Community : résultats visibles dans `../captures/05-*` et `06-*` et sur http://localhost:9000/dashboard?id=souverainrecrut-backend (Quality Gate Passed, 1,5 k lignes, duplication 0,0 %).
@@ -23,3 +25,4 @@ SonarQube n'exporte pas de rapport fichier en édition Community : résultats vi
 | 08 | `08-jenkins-stage-scan-trivy.jpg` | Stage Trivy : les deux commandes (rapport + seuil bloquant) |
 | 09 | `09-jenkins-credentials-masques.jpg` | Credentials `sonar-token` et `dockerhub` (secrets masqués) |
 | 10 | `10-sonarqube-webhook-jenkins.jpg` | Webhook SonarQube → `http://jenkins:8080/sonarqube-webhook/`, dernière livraison OK |
+| 11 | `11-redocly-api-docs.jpg` | Documentation API générée (Redocly) à partir de la spec exportée |

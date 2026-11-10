@@ -68,6 +68,20 @@ pipeline {
       }
     }
 
+    stage('Docs API') {
+      steps {
+        dir('backend') {
+          // Spec OpenAPI exportée depuis swagger-jsdoc, rendue en HTML statique par Redocly
+          sh 'npm run docs:api'
+        }
+      }
+      post {
+        always {
+          archiveArtifacts artifacts: 'backend/reports/openapi.json, backend/reports/api-docs.html', allowEmptyArchive: true
+        }
+      }
+    }
+
     stage('SonarQube') {
       steps {
         dir('backend') {

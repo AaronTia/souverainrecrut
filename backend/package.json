@@ -22,7 +22,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:ci": "jest --ci --coverage --runInBand"
+    "test:ci": "jest --ci --coverage --runInBand",
+    "docs:openapi": "tsx scripts/export-openapi.ts reports/openapi.json",
+    "docs:api": "npm run docs:openapi && npx --yes @redocly/cli build-docs reports/openapi.json -o reports/api-docs.html"
   },
   "engines": {
     "node": ">=22.0.0"
