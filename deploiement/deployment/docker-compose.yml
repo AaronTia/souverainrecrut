@@ -1,0 +1,81 @@
+# Déploiement SouverainRecrut Backend + PostgreSQL
+# L'image n'est jamais reconstruite ici : elle est tirée de Docker Hub avec le tag
+# publié par Jenkins (IMAGE_TAG dans .env). Jamais "latest".
+#
+#   docker compose pull
+#   docker compose run --rm migrate      # migrations Prisma (voir deploy.sh)
+#   docker compose up -d
+#   docker compose ps
+
+name: souverainrecrut
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_data:
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: souverainrecrut-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  # Service éphémère : applique les migrations Prisma de la version déployée.
+  # Le dossier ./prisma est extrait de l'image par deploy.sh (la CLI prisma
+  # n'est pas embarquée dans l'image de production).
+  migrate:
+    image: node:22-alpine
+    container_name: souverainrecrut-migrate
+    profiles: ["migrate"]
+    working_dir: /app
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}?schema=public
+    volumes:
+      - ./prisma:/app/prisma:ro
+    command: sh -c "npx --yes prisma@${PRISMA_VERSION:-6.16.2} migrate deploy --schema prisma/schema.prisma"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+
+  backend:
+    image: ${DOCKERHUB_USER}/souverainrecrut-backend:${IMAGE_TAG}
+    container_name: souverainrecrut-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      API_VERSION: v1
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}?schema=public
+      JWT_SECRET: ${JWT_SECRET}
+      FRONTEND_URL: ${FRONTEND_URL}
+    ports:
+      - "${BACKEND_PORT:-4000}:4000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:4000/v1/ready >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s

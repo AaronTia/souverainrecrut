@@ -1,0 +1,102 @@
+# Pipeline de déploiement SouverainRecrut Backend (Jour 2).
+# L'image n'est JAMAIS reconstruite ici : elle est publiée par Jenkins sur Docker Hub
+# (<DOCKERHUB_USER>/souverainrecrut-backend:<version>-<sha>) et seulement tirée sur le serveur.
+#
+# Variables CI/CD (Settings > CI/CD > Variables) :
+#   DEPLOY_HOST          adresse du serveur (ex. 192.168.139.128)
+#   DEPLOY_USER          utilisateur SSH (ex. x)
+#   SSH_PRIVATE_KEY      type "File", masquée/protégée : clé privée de déploiement
+#   POSTGRES_PASSWORD    masquée
+#   JWT_SECRET           masquée
+#   DOCKERHUB_USER       aarontiavin
+#   IMAGE_TAG            tag à déployer (valeur par défaut ci-dessous, modifiable au lancement)
+#   PREVIOUS_TAG         tag de retour arrière (job rollback)
+# Aucun secret n'est stocké dans le dépôt ni affiché dans les logs.
+
+stages: [validate, deploy, verify, rollback]
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+variables:
+  IMAGE_TAG:
+    value: "1.0.0-723d0f4"
+    description: "Tag de l'image Docker Hub à déployer (version-sha, jamais latest)"
+  PREVIOUS_TAG:
+    value: "1.0.0-12a585b"
+    description: "Tag à restaurer en cas de rollback"
+  DEPLOY_DIR: /opt/souverainrecrut
+  SSH_OPTS: "-o StrictHostKeyChecking=accept-new -o BatchMode=yes -o ConnectTimeout=15"
+
+default:
+  tags: [souverainrecrut-vm]
+
+.ssh_setup: &ssh_setup
+  - chmod 600 "$SSH_PRIVATE_KEY"
+  - export SSH="ssh -i $SSH_PRIVATE_KEY $SSH_OPTS $DEPLOY_USER@$DEPLOY_HOST"
+  - export SCP="scp -i $SSH_PRIVATE_KEY $SSH_OPTS"
+
+validate-tag:
+  stage: validate
+  script:
+    - |
+      echo "$IMAGE_TAG" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+-[0-9a-f]{7}$' \
+        || { echo "ERREUR : tag '$IMAGE_TAG' invalide (attendu : X.Y.Z-sha7, jamais latest)"; exit 1; }
+    - |
+      code=$(curl -s -o /dev/null -w '%{http_code}' \
+        "https://hub.docker.com/v2/repositories/${DOCKERHUB_USER}/souverainrecrut-backend/tags/${IMAGE_TAG}")
+      [ "$code" = "200" ] || { echo "ERREUR : ${DOCKERHUB_USER}/souverainrecrut-backend:${IMAGE_TAG} introuvable sur Docker Hub (HTTP $code)"; exit 1; }
+    - 'echo "Tag valide et publié sur Docker Hub - ${IMAGE_TAG}"'
+
+deploy-production:
+  stage: deploy
+  needs: [validate-tag]
+  environment:
+    name: production
+    url: http://$DEPLOY_HOST:4000/v1/health
+  when: manual            # approbation humaine tracée avant la production
+  script:
+    - *ssh_setup
+    - $SSH "mkdir -p $DEPLOY_DIR"
+    - $SCP deployment/docker-compose.yml deployment/deploy.sh deployment/rollback.sh "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIR/"
+    # .env reconstruit côté serveur depuis les variables CI (jamais commité, jamais affiché)
+    - |
+      $SSH "umask 077; cat > $DEPLOY_DIR/.env" <<EOF
+      DOCKERHUB_USER=$DOCKERHUB_USER
+      IMAGE_TAG=$IMAGE_TAG
+      BACKEND_PORT=4000
+      POSTGRES_USER=souverainrecrut
+      POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      POSTGRES_DB=souverainrecrut
+      JWT_SECRET=$JWT_SECRET
+      FRONTEND_URL=${FRONTEND_URL:-http://localhost:5173}
+      PRISMA_VERSION=6.16.2
+      EOF
+    - $SSH "cd $DEPLOY_DIR && sed -i 's/\r$//' deploy.sh rollback.sh docker-compose.yml && chmod +x deploy.sh rollback.sh && IMAGE_TAG=$IMAGE_TAG ./deploy.sh"
+
+smoke-test:
+  stage: verify
+  needs: [deploy-production]
+  script:
+    - *ssh_setup
+    - |
+      $SSH "curl -fsS http://127.0.0.1:4000/v1/health && echo && curl -fsS http://127.0.0.1:4000/v1/ready && echo"
+    - $SSH "cd $DEPLOY_DIR && docker compose ps"
+    - |
+      deployed=$($SSH "docker inspect --format '{{.Config.Image}}' souverainrecrut-backend")
+      echo "Image en production : $deployed"
+      [ "$deployed" = "${DOCKERHUB_USER}/souverainrecrut-backend:${IMAGE_TAG}" ] || { echo "ERREUR : image déployée différente du tag demandé"; exit 1; }
+
+rollback-production:
+  stage: rollback
+  needs: []
+  environment:
+    name: production
+  when: manual
+  script:
+    - *ssh_setup
+    - echo "Rollback vers ${PREVIOUS_TAG}"
+    - $SSH "cd $DEPLOY_DIR && ./rollback.sh $PREVIOUS_TAG"
+    - $SSH "curl -fsS http://127.0.0.1:4000/v1/ready"

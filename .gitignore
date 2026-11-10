@@ -45,3 +45,15 @@ Thumbs.db
 # ==========================
 
 prisma/dev.db
+# ==========================
+# Déploiement (Jour 2)
+# ==========================
+
+deploiement/deployment/.env
+deploiement/deployment/prisma/
+deploiement/deployment/.previous_tag
+deploiement/terraform/.terraform/
+deploiement/terraform/*.tfstate*
+deploiement/terraform/*.tfvars
+*.pem
+*.retry

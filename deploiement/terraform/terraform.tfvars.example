@@ -1,0 +1,5 @@
+# Copier en terraform.tfvars (ignoré par Git) et adapter.
+vm_ip                = "192.168.139.128"
+ssh_user             = "x"
+ssh_private_key_path = "/keys/deploy_key" # chemin vu depuis le conteneur Terraform (voir README)
+deploy_dir           = "/opt/souverainrecrut"

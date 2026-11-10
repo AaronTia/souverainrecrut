@@ -1,0 +1,183 @@
+---
+# Préparation du serveur de déploiement SouverainRecrut.
+# Idempotent : peut être rejoué sans effet de bord.
+#
+#   ansible-playbook playbook.yml -K                 # tout
+#   ansible-playbook playbook.yml -K --check --diff  # simulation
+#   ansible-playbook playbook.yml -K --tags runner   # seulement le GitLab Runner
+#   ansible-playbook playbook.yml -K -e system_upgrade=false
+- name: Préparer le serveur Ubuntu pour Docker Compose
+  hosts: app
+  become: true
+
+  vars:
+    system_upgrade: true
+    deploy_user: "{{ ansible_user }}"
+    docker_packages:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    install_gitlab_runner: true
+
+  tasks:
+    # ------------------------------------------------------------ système
+    - name: Mettre à jour le cache APT
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      tags: [system]
+
+    - name: Mettre à jour les paquets installés (upgrade safe)
+      ansible.builtin.apt:
+        upgrade: safe
+      when: system_upgrade | bool
+      tags: [system, upgrade]
+
+    - name: Installer les dépendances de base
+      ansible.builtin.apt:
+        name:
+          - ca-certificates
+          - curl
+          - gnupg
+          - python3-pip
+          - openssh-server
+          - ufw
+        state: present
+      tags: [system]
+
+    - name: S'assurer que SSH est actif
+      ansible.builtin.service:
+        name: ssh
+        state: started
+        enabled: true
+      tags: [system]
+
+    # ------------------------------------------------------------ docker
+    - name: Créer le répertoire des clés APT
+      ansible.builtin.file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: "0755"
+      tags: [docker]
+
+    - name: Ajouter la clé GPG du dépôt Docker
+      ansible.builtin.get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: /etc/apt/keyrings/docker.asc
+        mode: "0644"
+      tags: [docker]
+
+    - name: Ajouter le dépôt APT Docker
+      ansible.builtin.apt_repository:
+        repo: >-
+          deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}
+          signed-by=/etc/apt/keyrings/docker.asc]
+          https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+        filename: docker
+        state: present
+      tags: [docker]
+
+    - name: Installer Docker Engine et le plugin Compose
+      ansible.builtin.apt:
+        name: "{{ docker_packages }}"
+        state: present
+        update_cache: true
+      tags: [docker]
+
+    - name: Activer et démarrer Docker
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+      tags: [docker]
+
+    - name: Ajouter l'utilisateur de déploiement au groupe docker
+      ansible.builtin.user:
+        name: "{{ deploy_user }}"
+        groups: docker
+        append: true
+      tags: [docker]
+
+    # ------------------------------------------------------------ déploiement
+    - name: Créer le répertoire de déploiement
+      ansible.builtin.file:
+        path: "{{ deploy_dir }}"
+        state: directory
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+        mode: "0755"
+      tags: [deploy]
+
+    - name: Autoriser SSH et l'API dans le pare-feu
+      community.general.ufw:
+        rule: allow
+        port: "{{ item }}"
+        proto: tcp
+      loop: ["22", "4000"]
+      tags: [firewall]
+
+    - name: Activer le pare-feu (deny par défaut en entrée)
+      community.general.ufw:
+        state: enabled
+        policy: deny
+        direction: incoming
+      tags: [firewall]
+
+    # ------------------------------------------------------------ gitlab runner
+    - name: Ajouter la clé GPG du dépôt GitLab Runner
+      ansible.builtin.get_url:
+        url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+        dest: /etc/apt/keyrings/gitlab-runner.asc
+        mode: "0644"
+      when: install_gitlab_runner | bool
+      tags: [runner]
+
+    - name: Ajouter le dépôt APT GitLab Runner
+      ansible.builtin.apt_repository:
+        repo: >-
+          deb [signed-by=/etc/apt/keyrings/gitlab-runner.asc]
+          https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ {{ ansible_distribution_release }} main
+        filename: gitlab-runner
+        state: present
+      when: install_gitlab_runner | bool
+      tags: [runner]
+
+    - name: Installer GitLab Runner
+      ansible.builtin.apt:
+        name: gitlab-runner
+        state: present
+        update_cache: true
+      when: install_gitlab_runner | bool
+      tags: [runner]
+
+    - name: Autoriser le runner à utiliser Docker
+      ansible.builtin.user:
+        name: gitlab-runner
+        groups: docker
+        append: true
+      when: install_gitlab_runner | bool
+      tags: [runner]
+
+    # ------------------------------------------------------------ vérifications
+    - name: Vérifier Docker et Compose
+      ansible.builtin.command: "{{ item }}"
+      loop:
+        - docker --version
+        - docker compose version
+      register: versions
+      changed_when: false
+      tags: [verify]
+
+    - name: Afficher les versions installées
+      ansible.builtin.debug:
+        msg: "{{ versions.results | map(attribute='stdout') | list }}"
+      tags: [verify]
+
+    - name: Vérifier que le démon Docker répond
+      ansible.builtin.command: docker info --format '{{ "{{" }}.ServerVersion{{ "}}" }}'
+      register: docker_info
+      changed_when: false
+      failed_when: docker_info.rc != 0
+      tags: [verify]

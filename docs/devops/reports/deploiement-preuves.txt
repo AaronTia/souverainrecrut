@@ -1,0 +1,41 @@
+# Preuves de déploiement – SouverainRecrut Backend – 10/11/2026 14:10
+# Serveur : VM Ubuntu sous VMware Workstation, 192.168.139.128
+
+=== Système ===
+Ubuntu 22.04.5 LTS
+vCPU=2 RAM=3868Mo  Disque libre /: 12G
+
+=== Versions ===
+Docker version 29.9.3, build 5457199
+Docker Compose version v5.7.0
+Version:      19.5.3
+
+=== docker compose ps ===
+NAME                      IMAGE                                               COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+souverainrecrut-backend   aarontiavin/souverainrecrut-backend:1.0.0-723d0f4   "docker-entrypoint.s…"   backend   5 minutes ago    Up 5 minutes (healthy)    0.0.0.0:4000->4000/tcp, [::]:4000->4000/tcp
+souverainrecrut-db        postgres:16-alpine                                  "docker-entrypoint.s…"   db        12 minutes ago   Up 12 minutes (healthy)   5432/tcp
+
+=== Image en production (tag + digest) ===
+aarontiavin/souverainrecrut-backend:1.0.0-723d0f4  sha256:0b9848d00e9d21685eb0419dc9ccfe2a29a06fa18a26f0b86f7f034ed4e7773a
+tag courant: IMAGE_TAG=1.0.0-723d0f4   tag précédent: 1.0.0-12a585b
+
+=== Volume PostgreSQL persistant ===
+souverainrecrut_postgres_data
+
+=== Migrations Prisma appliquées ===
+ 20260630124434_init | t
+
+=== Pare-feu ===
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere                  
+4000/tcp                   ALLOW       Anywhere                  
+22/tcp (v6)                ALLOW       Anywhere (v6)             
+4000/tcp (v6)              ALLOW       Anywhere (v6)             
+
+=== Depuis le poste Windows (hors VM) ===
+GET /v1/health -> {"success":true,"data":{"status":"UP","timestamp":"2026-11-10T13:11:06.005Z","uptime":302.104653662,"environment":"production"}}
+GET /v1/ready -> {"success":true,"data":{"status":"READY","database":"CONNECTED","timestamp":"2026-11-10T13:11:06.089Z"}}
+GET /v1/candidates (sans token) -> HTTP 401

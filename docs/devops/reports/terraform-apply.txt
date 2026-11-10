@@ -1,0 +1,24 @@
+# Sortie Terraform – 10/11/2026 14:12 (image hashicorp/terraform, exécutée dans Docker)
+Terraform v1.17.1
+on linux_amd64
++ provider registry.terraform.io/hashicorp/local v2.9.1
+
+$ terraform validate
+Success! The configuration is valid.
+
+
+$ terraform plan (état déjà appliqué)
+local_file.ansible_inventory: Refreshing state... [id=dfdde79cb4befba17a019d16c8aa1f2b4cf00a3c]
+null_resource.vm_ready_check: Refreshing state... [id=2671379803727842495]
+No changes. Your infrastructure matches the configuration.
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+
+$ terraform output
+api_url = "http://192.168.139.128:4000/v1"
+inventory_file = "./generated/inventory.ini"
+ssh_command = "ssh -i <clé_privée> x@192.168.139.128"
+vm_ip = "192.168.139.128"
+
+--- contrôle exécuté par apply (remote-exec) ---
+OS : Ubuntu 22.04.5 LTS | 2 vCPU | RAM 3868 Mo | Docker 29.9.3 | Compose v5.7.0 | service docker: active | disque libre 12 Go

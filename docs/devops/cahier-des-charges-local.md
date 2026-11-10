@@ -41,8 +41,8 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 | E2 | Qualité logicielle | Tests exécutés, couverture et SonarQube consultables | `junit.xml`, `lcov`, Quality Gate PASSED | ✅ |
 | E3 | Sécurité | Secrets protégés, image scannée Trivy | Credentials Jenkins, `reports/trivy-image.txt` | ✅ (0 CRITICAL) |
 | E4 | Traçabilité | Tag explicite relié au code | `souverainrecrut-backend:1.0.0-<sha>` | ✅ |
-| E5 | Déploiement | Le serveur récupère l'image et l'API démarre avec PostgreSQL | `docker compose ps`, endpoint `/health` | ⬜ |
-| E6 | Continuité | Procédure de rollback documentée et testée | `procedure-rollback.md` + scénario joué | ⬜ |
+| E5 | Déploiement | Le serveur récupère l'image et l'API démarre avec PostgreSQL | `docker compose ps`, endpoint `/health` | ✅ |
+| E6 | Continuité | Procédure de rollback documentée et testée | `procedure-rollback.md` + scénario joué | ✅ |
 | E7 | Documentation | Choix techniques, prérequis, procédures expliqués | README pipeline + runbook ✅ · `documentation/` J2 ⬜ | ⚠️ |
 
 ---
@@ -83,40 +83,40 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 
 | # | Livrable | Emplacement | État | Notes |
 |---|---|---|---|---|
-| J2-01 | VM Ubuntu Server 24.04 (2 vCPU, 4 Go, 30 Go, NAT/Bridged, SSH) | VMware | ⬜ | |
-| J2-02 | IP, accès Internet et SSH vérifiés | — | ⬜ | |
-| J2-03 | Snapshot avant configuration | VMware | ⬜ | |
-| J2-04 | Terraform : `main.tf`, `variables.tf`, `outputs.tf`, `providers.tf` | `deploiement/terraform/` | ⬜ | Sans ESXi/vCenter : VM manuelle, Terraform sur ressources disponibles – **justifier** |
-| J2-05 | `terraform init / validate / plan / apply` joués | — | ⬜ | `terraform.tfvars` et `*.tfstate` hors Git |
+| J2-01 | VM Ubuntu Server 24.04 (2 vCPU, 4 Go, 30 Go, NAT/Bridged, SSH) | VMware | ✅ | VM Ubuntu **22.04** (cahier : 24.04), 2 vCPU, 3,8 Go, 29 Go, NAT, IP 192.168.139.128 |
+| J2-02 | IP, accès Internet et SSH vérifiés | — | ✅ | SSH par clé dédiée vérifié ; sudo sans mot de passe pour l'automatisation |
+| J2-03 | Snapshot avant configuration | VMware | ⚠️ | Snapshot « post-install » à confirmer dans VMware (non vérifiable depuis le poste) |
+| J2-04 | Terraform : `main.tf`, `variables.tf`, `outputs.tf`, `providers.tf` | `deploiement/terraform/` | ✅ | `providers/main/variables/outputs.tf` ; sans ESXi : contrôle SSH + génération d'inventaire (justifié, `terraform/README.md`) |
+| J2-05 | `terraform init / validate / plan / apply` joués | — | ✅ | `init/validate/plan/apply` joués, 2 ressources, `plan` idempotent – `reports/terraform-apply.txt` |
 
 ### 5.2 Configuration serveur
 
 | # | Livrable | Emplacement | État | Notes |
 |---|---|---|---|---|
-| J2-06 | Inventaire SSH | `deploiement/ansible/inventory.ini` | ⬜ | |
-| J2-07 | Playbook : update système, Docker Engine + Compose plugin, service activé, répertoire de déploiement, vérification | `deploiement/ansible/playbook.yml` | ⬜ | Idempotent ; `--check --diff` avant apply |
-| J2-08 | Secrets Ansible protégés (Vault ou variables CI) | — | ⬜ | |
+| J2-06 | Inventaire SSH | `deploiement/ansible/inventory.ini` | ✅ | `deploiement/ansible/inventory.ini` (aussi généré par Terraform) |
+| J2-07 | Playbook : update système, Docker Engine + Compose plugin, service activé, répertoire de déploiement, vérification | `deploiement/ansible/playbook.yml` | ✅ | `failed=0`, idempotent ; Docker 29.9.3, Compose v5.7.0, ufw, GitLab Runner 19.5.3 |
+| J2-08 | Secrets Ansible protégés (Vault ou variables CI) | — | ✅ | Aucun secret dans Ansible (clé montée à l'exécution) ; pas de Vault nécessaire |
 
 ### 5.3 Déploiement applicatif
 
 | # | Livrable | Emplacement | État | Notes |
 |---|---|---|---|---|
-| J2-09 | `docker-compose.yml` : backend (image Docker Hub taguée) + PostgreSQL, volume persistant, réseau, `restart`, healthchecks | `deploiement/deployment/docker-compose.yml` | ⬜ | Pas de `latest` |
-| J2-10 | `.env.example` (variables API + Prisma) | `deploiement/deployment/.env.example` | ⬜ | Le `.env` réel reste hors Git |
-| J2-11 | Stratégie de migrations Prisma maîtrisée | compose / script | ⬜ | Penser à la réversibilité du schéma |
-| J2-12 | Projet GitLab dédié au déploiement | GitLab | ⬜ | |
-| J2-13 | Variables CI/CD GitLab masquées : Docker Hub user/token, hôte, user SSH, clé privée, `IMAGE_TAG` | GitLab → Settings → CI/CD | ⬜ | |
-| J2-14 | `.gitlab-ci.yml` : valider le tag → SSH → transférer fichiers → `docker compose pull` → `up -d` → vérifier `ps` + API | `deploiement/.gitlab-ci.yml` | ⬜ | |
-| J2-15 | Approbation manuelle avant production (`when: manual`, environnement protégé) | `.gitlab-ci.yml` | ⬜ | Trace : qui, quand, quelle version |
+| J2-09 | `docker-compose.yml` : backend (image Docker Hub taguée) + PostgreSQL, volume persistant, réseau, `restart`, healthchecks | `deploiement/deployment/docker-compose.yml` | ✅ | backend (tag Docker Hub) + postgres:16, volume, healthchecks, `restart: unless-stopped` |
+| J2-10 | `.env.example` (variables API + Prisma) | `deploiement/deployment/.env.example` | ✅ | `.env.example` ; `.env` réel en 0600 sur le serveur, ignoré par Git |
+| J2-11 | Stratégie de migrations Prisma maîtrisée | compose / script | ✅ | `migrate deploy` avec les migrations extraites de l'image (`deploy.sh`) ; limites dans `procedure-rollback.md` |
+| J2-12 | Projet GitLab dédié au déploiement | GitLab | ✅ | `gitlab.com/WakakiVongola/souverainrecrut-deploy` (privé), identité vérifiée |
+| J2-13 | Variables CI/CD GitLab masquées : Docker Hub user/token, hôte, user SSH, clé privée, `IMAGE_TAG` | GitLab → Settings → CI/CD | ⬜ | À renseigner dans GitLab : DEPLOY_HOST, DEPLOY_USER, DOCKERHUB_USER, SSH_PRIVATE_KEY, POSTGRES_PASSWORD, JWT_SECRET |
+| J2-14 | `.gitlab-ci.yml` : valider le tag → SSH → transférer fichiers → `docker compose pull` → `up -d` → vérifier `ps` + API | `deploiement/.gitlab-ci.yml` | ⚠️ | Poussé et **validé par GitLab** (« Pipeline syntax is correct ») ; exécution en attente du runner + variables |
+| J2-15 | Approbation manuelle avant production (`when: manual`, environnement protégé) | `.gitlab-ci.yml` | ⚠️ | `when: manual` + `environment: production` écrits ; à démontrer avec un pipeline exécuté |
 
 ### 5.4 Validation et rollback
 
 | # | Livrable | Emplacement | État | Notes |
 |---|---|---|---|---|
-| J2-16 | Vérification API (health + endpoints principaux) | script smoke-test | ⬜ | |
-| J2-17 | Vérification backend ↔ PostgreSQL et persistance | — | ⬜ | Redémarrer et vérifier les données |
-| J2-18 | Version précédente identifiée + retour documenté | `procedure-rollback.md` | ⬜ | Conserver `PREVIOUS_TAG` |
-| J2-19 | Rollback testé sur un scénario maîtrisé | captures / logs | ⬜ | |
+| J2-16 | Vérification API (health + endpoints principaux) | script smoke-test | ✅ | `/v1/health`, `/v1/ready`, 401 sans token depuis le poste hôte – `reports/deploiement-preuves.txt` |
+| J2-17 | Vérification backend ↔ PostgreSQL et persistance | — | ✅ | Candidat créé via l'API, conservé après `down`/`up` et après rollback |
+| J2-18 | Version précédente identifiée + retour documenté | `procedure-rollback.md` | ✅ | `.previous_tag`, `rollback.sh`, `documentation/procedure-rollback.md` |
+| J2-19 | Rollback testé sur un scénario maîtrisé | captures / logs | ✅ | 723d0f4 → 12a585b → 723d0f4 ; bug `IMAGE_TAG` écrasé par `.env` découvert et corrigé |
 
 ### 5.5 Options vues en cours (bonus, non exigées par le cahier)
 
@@ -125,6 +125,8 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 | J2-20 | SBOM (`syft`) archivé par le pipeline | ⬜ | Critère go/no-go du cours J2 |
 | J2-21 | Signature d'image (`cosign`) | ⬜ | |
 | J2-22 | Métriques DORA dans le rapport final | ⬜ | Fréquence, délai, taux d'échec, temps de restauration |
+
+**État au 10/11/2026 (J2)** : 15/19 livrables complets, 3 partiels (snapshot à confirmer, pipeline GitLab écrit et validé mais pas encore exécuté, approbation manuelle à démontrer), 1 à faire (variables GitLab + runner).
 
 **Résultat attendu J2** : API accessible sur le serveur, déployée depuis une image Docker Hub identifiée, avec procédure de vérification et de retour arrière documentée.
 
@@ -136,10 +138,10 @@ GitHub (Dev) -> Jenkins -> Tests Jest          VMware / Ubuntu Server 24.04
 |---|---|---|
 | `integration-continue/README.md` | Prérequis, variables, déclencheurs, schéma du pipeline Jenkins | ✅ (`docs/devops/README-pipeline.md`, à copier dans l'arborescence finale) |
 | `deploiement/README.md` | Prérequis VM, Terraform, Ansible, GitLab, variables | ⬜ |
-| `documentation/architecture.md` | Schéma complet, rôle de chaque outil, flux commit → prod | ⬜ |
-| `documentation/procedure-deploiement.md` | Étapes reproductibles par un tiers | ⬜ |
-| `documentation/procedure-rollback.md` | Retour arrière + limites (migrations) | ⬜ |
-| `documentation/rapport-final.md` | Choix justifiés, preuves, argumentaire MSPR 4.1 / 5.1, métriques | ⬜ |
+| `documentation/architecture.md` | Schéma complet, rôle de chaque outil, flux commit → prod | ✅ |
+| `documentation/procedure-deploiement.md` | Étapes reproductibles par un tiers | ✅ |
+| `documentation/procedure-rollback.md` | Retour arrière + limites (migrations) | ✅ |
+| `documentation/rapport-final.md` | Choix justifiés, preuves, argumentaire MSPR 4.1 / 5.1, métriques | ✅ |
 | Runbook | `docs/devops/etapes-bloquantes.md` | ✅ |
 
 ## 7. Arborescence cible du livrable
