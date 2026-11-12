@@ -4,6 +4,8 @@ Plateforme web de gestion des recrutements : candidats, offres d'emploi, suivi d
 
 Ce dépôt est le projet fil rouge du module **CI/CD** (Mastère RNCP 40166, Sup de Vinci Rennes). Le périmètre industrialisé est l'**API backend** : de chaque commit à la mise en production, avec approbation humaine et retour arrière testé.
 
+Lien gitlab : https://gitlab.com/WakakiVongola/souverainrecrut-deploy.git
+
 | Qualité | Sécurité | Livraison |
 |---|---|---|
 | 151 tests, 99,4 % de couverture | 0 vulnérabilité critique corrigeable dans l'image | Image identique (même digest) de Jenkins à la production |
