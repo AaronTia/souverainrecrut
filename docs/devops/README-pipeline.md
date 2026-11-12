@@ -3,7 +3,7 @@
 Chaîne d'intégration continue du **Jour 1** : à chaque commit sur la branche `Dev`, le backend est testé, analysé, conteneurisé, scanné puis publié sur Docker Hub.
 
 ```
-GitHub (Dev) ──Poll SCM──► Jenkins ──► Tests Jest (127, couverture 100 %)
+GitHub (Dev) ──Poll SCM──► Jenkins ──► Tests Jest (151, couverture 99,4 %)
                                    ──► Docs API (OpenAPI → Redocly HTML)
                                    ──► SonarQube + Quality Gate (webhook)
                                    ──► docker build  backend/Dockerfile
@@ -116,8 +116,8 @@ Options : `timeout 30 min`, `disableConcurrentBuilds`, conservation des 10 derni
 
 | Contrôle | Résultat |
 |---|---|
-| Tests | 16 suites, **127 / 127** passés (depuis le 10/11 : 18 suites, 151 tests dont 8 `it.failing` documentant des défauts connus – voir cahier local §8 bis) |
-| Couverture | **100 %** lignes / branches / fonctions (seuil Jest 100 %) |
+| Tests | 16 suites, **127 / 127** passés. Depuis le 10/11 : 18 suites, **151 / 151** (dont 8 `it.failing` documentant des défauts connus – voir cahier local §8 bis) |
+| Couverture | Au build #9 : 100 % lignes / branches / fonctions. Actuellement : **99,4 %** des lignes, 80 % des branches, 98,1 % des fonctions. Seuils Jest : 100 % sur `middlewares/` et `validators/`, 90 % global (branches 70 %) |
 | SonarQube | Quality Gate **Passed** · 1,5 k lignes · 0 nouveau problème · duplication 0,0 % |
 | Trivy | **0 CRITICAL**, 16 HIGH (dépendances transitives, non bloquantes, listées dans le rapport) |
 | Image | `aarontiavin/souverainrecrut-backend:1.0.0-12a585b` · digest `sha256:5c9992b3…` · 160 Mo compressés · linux/amd64 |

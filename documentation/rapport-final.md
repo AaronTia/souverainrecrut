@@ -1,7 +1,31 @@
 # Rapport final – projet fil rouge CI/CD SouverainRecrut
 
+**Auteurs** : Joan Carpentier · Aaron Tiavinjanahary — Mastère RNCP 40166, Sup de Vinci Rennes — 9 et 10 novembre 2026
+**Dépôt du code** : [https://github.com/AaronTia/souverainrecrut.git](https://github.com/AaronTia/souverainrecrut.git) (branche `Dev`)
+**Dépôt de déploiement** : [https://gitlab.com/WakakiVongola/souverainrecrut-deploy.git](https://gitlab.com/WakakiVongola/souverainrecrut-deploy.git)
+
+> **Version illustrée (schémas, captures légendées, 27 pages) : [`rapport/rapport-final.pdf`](rapport/rapport-final.pdf)** — source : `rapport/generer-rapport.py`. Ce fichier en est la version texte.
+
 Mastère Expert en Développement et Déploiement de Solutions Numériques Sécurisées – RNCP 40166 – Sup de Vinci Rennes
 Module CI/CD (14 h) – Blocs 4 et 5 – Formateur : Alimou Diallo – 9 et 10 novembre 2026
+
+## En un coup d'œil
+
+| Vous cherchez… | La réponse | Où la trouver |
+|---|---|---|
+| L'application tourne-t-elle ? | Oui : API en ligne, base connectée, pipeline GitLab vert | §1, §5, §7 |
+| Le code est-il de qualité ? | 151 tests, 99,4 % de couverture, Quality Gate « Passed » | §3 |
+| Est-ce sécurisé ? | 0 vulnérabilité critique dans l'image ; secrets hors dépôt ; approbation humaine | §4, §5 |
+| Ce qui est déployé est-il ce qui a été testé ? | Oui : même empreinte (digest) de Jenkins à la production | §1 et `documentation/architecture.md` |
+| Peut-on revenir en arrière ? | Oui, testé sur trois versions, données conservées | §5 et `procedure-rollback.md` |
+| Comment déployer ? | Terraform contrôle, Ansible configure, GitLab déploie après approbation | `deploiement/README.md` |
+| Ce qui manque ? | SBOM, signature d'image, tests de charge, préproduction | §4 |
+| Qui a réalisé le projet ? | Joan Carpentier et Aaron Tiavinjanahary | en-tête |
+
+**À retenir** : l'image testée est celle qui tourne en production ; la mise en production exige une approbation humaine tracée ;
+les limites sont assumées (base simulée dans les tests, Ubuntu 22.04, pas de HTTPS).
+
+---
 
 ## 1. Objectif et résultat
 
@@ -12,7 +36,7 @@ conteneur, scan, publication, puis déploiement approuvé et réversible.
 |---|---|---|
 | Tests backend + couverture exploitable | ✅ 18 suites, 151 tests, couverture 99,4 % lignes | `docs/devops/reports/junit-result.xml`, `lcov.info` |
 | SonarQube + Quality Gate PASSED | ✅ | capture 05, 06 |
-| Jenkinsfile : checkout → tests → Sonar → image → Trivy → push | ✅ builds #9, #10, #11 verts | `Jenkinsfile`, capture 02 |
+| Jenkinsfile : checkout → tests → Sonar → image → Trivy → push | ✅ builds #9 à #14 verts | `Jenkinsfile`, capture 02 |
 | Image taguée, scannée, publiée | ✅ `aarontiavin/souverainrecrut-backend:1.0.0-723d0f4` | capture 07, `trivy-image.txt` |
 | VM Ubuntu + Docker via Ansible | ✅ `failed=0`, idempotent | `deploiement/ansible/`, `deploiement-preuves.txt` |
 | Terraform | ✅ avec adaptation (voir §4) | `deploiement/terraform/`, `terraform-apply.txt` |
@@ -38,10 +62,12 @@ conteneur, scan, publication, puis déploiement approuvé et réversible.
 
 ## 3. Qualité : ce que la suite de tests prouve, et ce qu'elle ne prouve pas
 
-La suite a été **recentrée sur les comportements** : suppression des tests qui recopiaient l'implémentation
-(appels Prisma) ou ne vérifiaient qu'un `typeof`, ajout de tests CORS, de contrat OpenAPI ↔ routes et de
-8 tests `it.failing` qui documentent des défauts du dépôt de référence. Seuils : 100 % sur `middlewares/` et
-`validators/`, 90 % global.
+La suite de tests contient aujourd'hui 18 suites et 151 tests : unitaires, d'intégration HTTP (`supertest`), configuration Jest et couverture.
+
+**Modifications apportées à la suite** : retrait des tests qui recopiaient l'implémentation (appels Prisma figés) ou ne vérifiaient
+qu'un `typeof` ; ajout de tests de sécurité réels (jeton forgé, jeton expiré, algorithme `none`, injection de champs),
+de tests CORS, d'un test de contrat entre la documentation OpenAPI et les routes, et de tests `it.failing` qui documentent
+les défauts du dépôt de référence. Seuils : 100 % sur `middlewares/` et `validators/`, 90 % global.
 
 ### Défauts identifiés (tracés, non corrigés : périmètre « code applicatif inchangé »)
 
@@ -53,6 +79,8 @@ La suite a été **recentrée sur les comportements** : suppression des tests qu
 | D4 | `?page=abc` → `skip: NaN` → erreur serveur | Moyenne |
 | D5 | Violation de clé étrangère (`P2003`) non traduite → 500 | Moyenne |
 | D6 | Un recruteur peut créer une offre au nom d'un autre (pas de contrôle de propriété) | Moyenne |
+| D7 | Express annonce sa version (en-tête `X-Powered-By`), signalé par SonarQube | Faible |
+| D8 | `parseInt` au lieu de `Number.parseInt` dans `pagination.ts` (2 occurrences), signalé par SonarQube | Faible |
 
 Les tests `it.failing` **passent aujourd'hui** (défaut présent) et feront échouer le pipeline le jour où le
 défaut sera corrigé sans mise à jour du test : la dette est visible, pas masquée.
@@ -95,7 +123,7 @@ VMware « post-install » confirmé.
 
 | Indicateur | Valeur |
 |---|---|
-| Builds Jenkins | 11 (5 en échec avant stabilisation, 3 verts de référence #9 à #11) |
+| Builds Jenkins | 14 (échecs avant stabilisation, puis 6 builds verts, #9 à #14) |
 | Durée d'un build complet | ~5 min |
 | Durée du pipeline GitLab complet | ~8 min 15 s avant optimisation, dont 4 min 40 s pour `prisma migrate deploy` (la CLI Prisma était retéléchargée depuis npm à chaque déploiement) |
 | Migration Prisma après optimisation | **13 s** en cache (53 s au premier passage) grâce à un volume `npm_cache` : environ 20 fois plus rapide ; pipeline complet estimé à ~3 min |

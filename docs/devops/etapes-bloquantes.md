@@ -8,7 +8,7 @@ Journal des points qui ont bloqué la chaîne **GitHub → Jenkins → SonarQube
 |---|---|---|---|
 | 1 | Tests Jest | `npm test` : « No tests found » / TypeScript non compilé | ✅ Résolu |
 | 2 | Prisma | Types `User`, `Role`… introuvables (`TS2305`) | ✅ Résolu |
-| 3 | Jest | Seuil de couverture 100 % ignoré | ✅ Résolu |
+| 3 | Jest | Seuils de couverture ignorés | ✅ Résolu |
 | 4 | SonarQube | Mot de passe admin perdu après redémarrage | ✅ Résolu |
 | 5 | SonarQube | Webhook vers Jenkins refusé | ✅ Résolu |
 | 6 | Jenkins | Image sans `docker`, Node ni Trivy | ✅ Résolu |
@@ -36,7 +36,7 @@ Journal des points qui ont bloqué la chaîne **GitHub → Jenkins → SonarQube
 
 - **Symptôme** : `Unknown option "coverageThresholds"` dans la sortie Jest.
 - **Cause** : faute de frappe (`coverageThresholds` au lieu de `coverageThreshold`) et option placée au niveau des projets.
-- **Solution** : `coverageThreshold` au niveau global uniquement → le seuil de 100 % est appliqué et fait échouer le stage Tests s'il n'est pas atteint.
+- **Solution** : `coverageThreshold` au niveau global uniquement → les seuils (100 % sur `middlewares/` et `validators/`, 90 % global) sont appliqués et font échouer le stage Tests s'ils ne sont pas atteints.
 
 ## 4. Mot de passe admin SonarQube
 
